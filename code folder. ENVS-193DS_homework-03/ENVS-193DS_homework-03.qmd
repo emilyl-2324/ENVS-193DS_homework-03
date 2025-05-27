@@ -37,7 +37,9 @@ cleandata <- datasheet |> #storing clean df as an object "cleandata"
     mood_level == 2 ~ "bad",
     mood_level == 3 ~ "average",
     mood_level == 4 ~ "good")) |> 
-  mutate(mood_level = factor(mood_level, levels = c("bad", "average", "good")))  # set order here
+  mutate(mood_level = factor(mood_level, levels = c("bad", "average", "good"))) |> # set order here
+  mutate(caffeine = replace_na(caffeine, "no")) #replace NA with "no" in caffeine column
+
 
 
 ggplot(data = cleandata, #using the cleandata dataframe 
@@ -59,5 +61,56 @@ ggplot(data = cleandata, #using the cleandata dataframe
                     ) +
   theme(legend.position = "none") # getting rid of the legend
 
+```
+
+```{r}
+#create a plot showing caffeine consumption (yes/no) on x-axis and listening time (min) on y-axis 
+ggplot(data = cleandata,
+       aes(x = caffeine, 
+           y = spotify_time, 
+           color = caffeine)) +
+  geom_boxplot(width = 0.4) + 
+  geom_jitter(size = 1.9, 
+              width = 0.1, 
+              height = 0) +
+  labs(x = "caffeine consumed",
+       y = "spotify listening time (min)",
+       title = "spotify listening time on days with/without caffeine") +
+  theme(legend.position = "none")
+```
+
+```{r}
+#create a scatterplot with screen time (min) on x-axis and spotify listening time (min) on y-axis
+ggplot(data = cleandata, 
+       aes(x = total_screen_time,
+           y = spotify_time)) +
+  geom_jitter(size = 1.7,
+              width = 0.1) + 
+  labs(x = "screen time",
+       y = "spotify listening time",
+       title = "spotify listening time and screen time")
+  
+```
+
+```{r}
+#create a scatterplot with mood on x-axis and screen time on y-axis
+ggplot(data = cleandata, #using the cleandata dataframe 
+       aes(x = mood_level, #plots mood levels on the x-axis and listening time on the y-axis 
+           y = total_screen_time,  
+           color = mood_level)) + #assigning color of the data based on mood 
+  geom_boxplot(width = 0.4) + # first layer should be a boxplot 
+  geom_jitter(size = 1.9,
+              width = 0.1, # making the points jitter horizontally 
+              height = 0) + # making sure points don't jitter vertically 
+  labs( #add titles
+        x = "mood level", 
+        y = "daily screen time (min)",
+        title = "daily screen time vs. mood") + 
+  scale_color_manual( #assign colors to each mood_level
+            values = c( "bad" = "red",
+                        "average" = "orange",
+                        "good" = "darkgreen")
+                    ) +
+  theme(legend.position = "none") # getting rid of the legend
 ```
 
