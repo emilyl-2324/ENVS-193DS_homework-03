@@ -33,18 +33,31 @@ datasheet <- read_csv("envs193dsmusicdata.csv")
 
 cleandata <- datasheet |> #storing clean df as an object "cleandata"
   clean_names() |> #clean column names 
-  mutate(mood_level = as_factor(mood_level)) # make sure mood_level is being read in as a factor
+  mutate(mood_level = case_when(
+    mood_level == 2 ~ "bad",
+    mood_level == 3 ~ "average",
+    mood_level == 4 ~ "good")) |> 
+  mutate(mood_level = factor(mood_level, levels = c("bad", "average", "good")))  # set order here
 
 
 ggplot(data = cleandata, #using the cleandata dataframe 
        aes(x = mood_level, #plots mood levels on the x-axis and listening time on the y-axis 
            y = spotify_time,  
            color = mood_level)) + #assigning color of the data based on mood 
-  geom_boxplot() + # first layer should be a boxplot 
-  geom_jitter(width = 0.2, # making the points jitter horizontally 
+  geom_boxplot(width = 0.4) + # first layer should be a boxplot 
+  geom_jitter(size = 1.9,
+              width = 0.1, # making the points jitter horizontally 
               height = 0) + # making sure points don't jitter vertically 
-  labs(x = "mood level", # labelling the x-axis 
-       y = "spotify listening time (min)") # labelling the y-axis
+  labs( #add titles
+        x = "mood level", 
+        y = "spotify listening time (min)",
+        title = "spotify listening time vs. mood") + 
+  scale_color_manual( #assign colors to each mood_level
+            values = c( "bad" = "red",
+                        "average" = "orange",
+                        "good" = "darkgreen")
+                    ) +
+  theme(legend.position = "none") # getting rid of the legend
 
 ```
 
