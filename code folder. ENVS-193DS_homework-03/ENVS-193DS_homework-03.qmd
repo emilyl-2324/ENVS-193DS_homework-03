@@ -31,10 +31,20 @@ Make sure your axis labels are full, readable text (not just your column names).
 library(janitor)
 datasheet <- read_csv("envs193dsmusicdata.csv")
 
-cleandata <- datasheet |> 
-  clean_names()
+cleandata <- datasheet |> #storing clean df as an object "cleandata"
+  clean_names() |> #clean column names 
+  mutate(mood_level = as_factor(mood_level)) # make sure mood_level is being read in as a factor
 
 
+ggplot(data = cleandata, #using the cleandata dataframe 
+       aes(x = mood_level, #plots mood levels on the x-axis and listening time on the y-axis 
+           y = spotify_time,  
+           color = mood_level)) + #assigning color of the data based on mood 
+  geom_boxplot() + # first layer should be a boxplot 
+  geom_jitter(width = 0.2, # making the points jitter horizontally 
+              height = 0) + # making sure points don't jitter vertically 
+  labs(x = "mood level", # labelling the x-axis 
+       y = "spotify listening time (min)") # labelling the y-axis
 
 ```
 
