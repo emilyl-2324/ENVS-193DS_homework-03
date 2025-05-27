@@ -1,0 +1,16 @@
+---
+title: "ENVS-193DS_homework-03"
+format: html
+editor: visual
+---
+https://github.com/emilyl-2324/ENVS-193DS_homework-03.git 
+
+```{r}
+library(tidyverse)
+library(here)
+library(gt)
+library(janitory)
+library(readxl)
+library(conflict)
+```
+
