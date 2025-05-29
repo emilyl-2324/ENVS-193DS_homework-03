@@ -3,7 +3,8 @@ title: "ENVS-193DS_homework-03"
 format: html
 editor: visual
 ---
-https://github.com/emilyl-2324/ENVS-193DS_homework-03.git 
+
+https://github.com/emilyl-2324/ENVS-193DS_homework-03.git
 
 ```{r}
 library(tidyverse)
@@ -12,15 +13,19 @@ library(gt)
 library(janitor)
 library(readxl)
 ```
-# Problem 1: 
+
+# Problem 1:
+
 ## a. Data summarizing (5 points)
+
 In 1-2 sentences, describe how you could summarize your data to compare your response variable between categories or groups of your choosing. For example, are you counting observations and comparing counts between groups? Are you taking the mean and comparing means between groups? Are you finding the maximum, minimum, range? Are you adding numbers together?
 
 Be sure to describe why comparing between the groups you chose is informative. For example, you might calculate the mean number of steps you take to compare between week days, but what about those weekdays is different (e.g. “I could calculate the mean number of steps I took to compare average step count between weekdays because I have more classes on Monday than on any other day of the week, so I think I walk more on Monday.”)
 
 I could calculate the mean listening time for each mood level, since on days where I'm more stressed, it could be correlated with more studying and I usually listen to music while studying. I could calculate the mean mood levels for days where I receive less than 7 hours of sleep and for days where I receive 7 or more hours of sleep since I think I will have lower mood levels on days where I receive relatively less sleep.
 
-## b. Visualization (10 points): 
+## b. Visualization (10 points):
+
 Using the summary you described in part a, create a visualization of your data comparing your summarized response variable between groups. If you are calculating a mean or median, show the underlying data in addition to your summary.
 
 Use colors in your figure (that are not the default ggplot settings).
@@ -114,10 +119,8 @@ ggplot(data = cleandata, #using the cleandata dataframe
   theme(legend.position = "none") # getting rid of the legend
 ```
 
-# c. Caption (5 points): 
+# c. Caption (5 points):
+
 Write a caption for your figure.
 
-
-
-d. Table presentation (10 points)
-Using gt or flextable, create a table with the same data summary that you describe in part a and visualized in part b. For example, if you described and visualized means, make a table with means. If you need to, round any numbers to one decimal point.
+d.  Table presentation (10 points) Using gt or flextable, create a table with the same data summary that you describe in part a and visualized in part b. For example, if you described and visualized means, make a table with means. If you need to, round any numbers to one decimal point.
