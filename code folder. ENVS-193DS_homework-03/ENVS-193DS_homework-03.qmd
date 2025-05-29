@@ -93,7 +93,7 @@ ggplot(data = cleandata,
 ```
 
 ```{r}
-#create a scatterplot with mood on x-axis and screen time on y-axis
+#create a scatterplot with mood on x-axis and screen time on y-axix 
 ggplot(data = cleandata, #using the cleandata dataframe 
        aes(x = mood_level, #plots mood levels on the x-axis and listening time on the y-axis 
            y = total_screen_time,  
@@ -108,9 +108,16 @@ ggplot(data = cleandata, #using the cleandata dataframe
         title = "daily screen time vs. mood") + 
   scale_color_manual( #assign colors to each mood_level
             values = c( "bad" = "red",
-                        "average" = "orange",
-                        "good" = "darkgreen")
+                        "average" = "magenta",
+                        "good" = "purple")
                     ) +
   theme(legend.position = "none") # getting rid of the legend
 ```
 
+# c. Caption (5 points): 
+Write a caption for your figure.
+
+
+
+d. Table presentation (10 points)
+Using gt or flextable, create a table with the same data summary that you describe in part a and visualized in part b. For example, if you described and visualized means, make a table with means. If you need to, round any numbers to one decimal point.
