@@ -124,8 +124,6 @@ ggplot(data = cleandata, #using the cleandata dataframe
 # Load necessary libraries
 
 # Read and clean data
-
-library(gt) 
 datasheet <- read_csv("envs193dsmusicdata.csv")
 
 library(gt) 
@@ -133,17 +131,36 @@ cleansleep_summary <- cleandata |>
   clean_names() |> 
   filter(sleep > 0) |> 
     group_by(mood_level) |> 
-    summarize(mean = mean(sleep),
+    summarize(mean_sleep = mean(sleep),
               n = length(sleep)
               ) |> 
     mutate(#round each value to 1 decimal
-      mean = round(mean, 1)
+      mean_sleep = round(mean_sleep, 1)
       ) |> 
-    select(mood_level, mean, n)
+    select(mood_level, mean_sleep, n)
+
+ggplot(data = cleansleep_summary,
+       aes(x = mean_sleep,
+           y = mood_level)) +
+  geom_col(data = cleansleep_summary,
+           aes(x = mean_sleep,
+               y = mood_level,
+               fill = mood_level),
+           width = 0.5,
+           alpha = 0.5)+
 
 
+  
 
 ```
+ geom_col(data = tussocks_summary,  
+           aes(x = site, 
+               y = mean,  
+               fill = site), #fill bar by site 
+           width = 0.5,  #change width  
+           color = "black",#border color  
+           alpha = 0.5, #transparency 
+)
 
 # create a new object called `jtnp`
 jtnp <- parks_visits |> # start with the `parks_visits` data frame
@@ -181,6 +198,37 @@ tussocks_clean
   select(site, mean, sd, se, ci_lower, ci_higher)  #selecting stats to 
 display 
 
+```{r}
+#create a plot showing spotify listening time vs sleep (>7 and <7 on x-axis, listening time on y-axis)
+
+library(dplyr)
+music_sleep <- cleansleep |>
+  clean_names() |> 
+  mutate(sleep = case_when(
+    sleep < 7 ~ "less than 7 hours",
+    sleep >= 7 ~ "7 hours or more"
+  ))
+
+ggplot(data = music_sleep,
+       aes(x = sleep,
+           y = spotify_time,
+           color = sleep)) +
+  geom_boxplot(width = 0.4,
+               alpha = 0.5) + # first layer should be a boxplot 
+  geom_jitter(size = 1.9,
+              width = 0.1, # making the points jitter horizontally 
+              height = 0) + # making sure points don't jitter vertically 
+  labs( #add titles
+        x = "sleep", 
+        y = "listening time (min)",
+        title = "sleep vs listening time (min)")+
+  theme_minimal()+ 
+  theme(legend.position = "none")
+
+
+
+
+```
 
 
 # c. Caption (5 points):
