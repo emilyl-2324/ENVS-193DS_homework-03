@@ -120,88 +120,10 @@ ggplot(data = cleandata, #using the cleandata dataframe
 ```
 
 ```{r}
-#create a plot showing mood levels on days with greater than 7 hours of sleep vs. days with less than 7 hours of sleep; create table with >7 and <7, mean mood levels, and n. 
-# Load necessary libraries
-
-# Read and clean data
-datasheet <- read_csv("envs193dsmusicdata.csv")
-
-library(gt) 
-cleansleep_summary <- cleandata |> 
-  clean_names() |> 
-  filter(sleep > 0) |> 
-    group_by(mood_level) |> 
-    summarize(mean_sleep = mean(sleep),
-              n = length(sleep)
-              ) |> 
-    mutate(#round each value to 1 decimal
-      mean_sleep = round(mean_sleep, 1)
-      ) |> 
-    select(mood_level, mean_sleep, n)
-
-ggplot(data = cleansleep_summary,
-       aes(x = mean_sleep,
-           y = mood_level)) +
-  geom_col(data = cleansleep_summary,
-           aes(x = mean_sleep,
-               y = mood_level,
-               fill = mood_level),
-           width = 0.5,
-           alpha = 0.5)+
-
-
-  
-
-```
- geom_col(data = tussocks_summary,  
-           aes(x = site, 
-               y = mean,  
-               fill = site), #fill bar by site 
-           width = 0.5,  #change width  
-           color = "black",#border color  
-           alpha = 0.5, #transparency 
-)
-
-# create a new object called `jtnp`
-jtnp <- parks_visits |> # start with the `parks_visits` data frame
-  filter(park == "jtnp") |> # filter to only include Joshua tree
-  summarize(mean_visits = mean(visits)) # calculate the mean number of visits at Joshua Tree
-
-goodsleep <- cleansleep
-  filter(sleep >= 7)
-  summarize(mean_goodsleep = mean(sleep))
-
-poorsleep <- cleansleep
-  filter(sleep < 7)
-  summarize(mean_badsleep = mean(sleep))
-
-
-tussocks_summary <- tussocks_clean |> #creating a new object using df 
-tussocks_clean 
-  group_by(site) |> #groups the table by predictor variable 
-  summarize(mean = mean(average_moss_cm), #find mean  
-            n = length(average_moss_cm), #find sample size 
-            df = n - 1, #find degrees of freedom  
-            sd = sd(average_moss_cm), #find standard deviation 
-            se = sd/sqrt(n), #find standard error 
-            tval = qt(p = 0.05/2, df = df, lower.tail = FALSE), #find t-value 
-            ci_lower = mean - tval*se, #find lower confidence interval bound 
-            ci_higher = mean + tval*se #find upper confidence interval bound 
-            ) |>  
-  mutate( #rounding each value to 1 decimal point 
-      mean = round(mean, 1), 
-      sd = round(sd, 1), 
-      se = round(se, 1), 
-      ci_lower = round(ci_lower, 1), 
-      ci_higher = round(ci_higher, 1) 
-        ) |>  
-  select(site, mean, sd, se, ci_lower, ci_higher)  #selecting stats to 
-display 
-
-```{r}
 #create a plot showing spotify listening time vs sleep (>7 and <7 on x-axis, listening time on y-axis)
 
 library(dplyr)
+library(gt)
 music_sleep <- cleansleep |>
   clean_names() |> 
   mutate(sleep = case_when(
@@ -209,30 +131,49 @@ music_sleep <- cleansleep |>
     sleep >= 7 ~ "7 hours or more"
   ))
 
+sleep_summary <- music_sleep |> 
+  group_by(sleep) |> 
+  summarize(mean = mean(spotify_time)) |> 
+  mutate(mean = round(mean, 1)) |> 
+  select(sleep, mean)
+  
+sleep_summary |> 
+  gt() |> 
+    cols_label( #renaming columns 
+    sleep = "sleep",
+    mean = "average spotify time"
+    )
+```
+
+```{r}
 ggplot(data = music_sleep,
        aes(x = sleep,
            y = spotify_time,
            color = sleep)) +
-  geom_boxplot(width = 0.4,
-               alpha = 0.5) + # first layer should be a boxplot 
+  #geom_boxplot(width = 0.4,
+               #alpha = 0.5) + # first layer should be a boxplot 
   geom_jitter(size = 1.9,
               width = 0.1, # making the points jitter horizontally 
               height = 0) + # making sure points don't jitter vertically 
+  geom_col(data = sleep_summary,
+           aes(x = sleep,
+               y = mean, 
+               fill = sleep),
+           width = 0.2,
+           alpha = 0.1)+
   labs( #add titles
         x = "sleep", 
         y = "listening time (min)",
-        title = "sleep vs listening time (min)")+
+        title = "Figure 4. Sleep vs Listening Time (min)")+
   theme_minimal()+ 
   theme(legend.position = "none")
-
-
-
-
 ```
 
 
 # c. Caption (5 points):
 
 Write a caption for your figure.
+Figure 4. Figure depicts relationship between sleep time (categorized as either less than 7 hours or 7 hours or greater) and spotify listening time in minutes. Each point represents listening time in minutes. Red points represents sleep time of 7 hours or more while blue represents sleep of less than 7 hours. The boxplot shows the 
+
 
 d.  Table presentation (10 points) Using gt or flextable, create a table with the same data summary that you describe in part a and visualized in part b. For example, if you described and visualized means, make a table with means. If you need to, round any numbers to one decimal point.
