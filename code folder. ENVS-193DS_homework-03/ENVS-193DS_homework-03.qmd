@@ -119,6 +119,70 @@ ggplot(data = cleandata, #using the cleandata dataframe
   theme(legend.position = "none") # getting rid of the legend
 ```
 
+```{r}
+#create a plot showing mood levels on days with greater than 7 hours of sleep vs. days with less than 7 hours of sleep; create table with >7 and <7, mean mood levels, and n. 
+# Load necessary libraries
+
+# Read and clean data
+
+library(gt) 
+datasheet <- read_csv("envs193dsmusicdata.csv")
+
+library(gt) 
+cleansleep_summary <- cleandata |> 
+  clean_names() |> 
+  filter(sleep > 0) |> 
+    group_by(mood_level) |> 
+    summarize(mean = mean(sleep),
+              n = length(sleep)
+              ) |> 
+    mutate(#round each value to 1 decimal
+      mean = round(mean, 1)
+      ) |> 
+    select(mood_level, mean, n)
+
+
+
+```
+
+# create a new object called `jtnp`
+jtnp <- parks_visits |> # start with the `parks_visits` data frame
+  filter(park == "jtnp") |> # filter to only include Joshua tree
+  summarize(mean_visits = mean(visits)) # calculate the mean number of visits at Joshua Tree
+
+goodsleep <- cleansleep
+  filter(sleep >= 7)
+  summarize(mean_goodsleep = mean(sleep))
+
+poorsleep <- cleansleep
+  filter(sleep < 7)
+  summarize(mean_badsleep = mean(sleep))
+
+
+tussocks_summary <- tussocks_clean |> #creating a new object using df 
+tussocks_clean 
+  group_by(site) |> #groups the table by predictor variable 
+  summarize(mean = mean(average_moss_cm), #find mean  
+            n = length(average_moss_cm), #find sample size 
+            df = n - 1, #find degrees of freedom  
+            sd = sd(average_moss_cm), #find standard deviation 
+            se = sd/sqrt(n), #find standard error 
+            tval = qt(p = 0.05/2, df = df, lower.tail = FALSE), #find t-value 
+            ci_lower = mean - tval*se, #find lower confidence interval bound 
+            ci_higher = mean + tval*se #find upper confidence interval bound 
+            ) |>  
+  mutate( #rounding each value to 1 decimal point 
+      mean = round(mean, 1), 
+      sd = round(sd, 1), 
+      se = round(se, 1), 
+      ci_lower = round(ci_lower, 1), 
+      ci_higher = round(ci_higher, 1) 
+        ) |>  
+  select(site, mean, sd, se, ci_lower, ci_higher)  #selecting stats to 
+display 
+
+
+
 # c. Caption (5 points):
 
 Write a caption for your figure.
