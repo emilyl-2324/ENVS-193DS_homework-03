@@ -22,7 +22,7 @@ In 1-2 sentences, describe how you could summarize your data to compare your res
 
 Be sure to describe why comparing between the groups you chose is informative. For example, you might calculate the mean number of steps you take to compare between week days, but what about those weekdays is different (e.g. “I could calculate the mean number of steps I took to compare average step count between weekdays because I have more classes on Monday than on any other day of the week, so I think I walk more on Monday.”)
 
-I could calculate the mean spotify listening time to the hours of sleep I receive since on days when I'm more tired, I think I have less impulse control and would be more likely to get instant gratification from listening to music. I will find and compare the average listening time on days with <7 hours of sleep and on days with 7 hours or more of sleep. 
+I could calculate the mean spotify listening time to the hours of sleep I receive since on days when I'm more tired, I think I have less impulse control and would be more likely to get instant gratification from listening to music. I will find and compare the average listening time on days with \<7 hours of sleep and on days with 7 hours or more of sleep.
 
 ## b. Visualization (10 points):
 
@@ -124,6 +124,9 @@ ggplot(data = cleandata, #using the cleandata dataframe
 
 library(dplyr)
 library(gt)
+cleansleep <- cleandata |> 
+  filter(sleep > 0)
+  
 music_sleep <- cleansleep |>
   clean_names() |> 
   mutate(sleep = case_when(
@@ -168,13 +171,11 @@ ggplot(data = music_sleep,
   theme(legend.position = "none")
 ```
 
-
 # c. Caption (5 points):
 
 Write a caption for your figure.
 
-Figure 4. Figure depicts relationship between sleep time (categorized as either less than 7 hours or 7 hours or greater) and spotify listening time in minutes. Each point represents listening time in minutes. Red points represents sleep time of 7 hours or more while blue represents sleep of less than 7 hours. The bar shows the average listening time for each sleep time category, depicting a greater average listening time for days that had 7 or more hours of sleep.  
-
+Figure 4. Figure depicts relationship between sleep time (categorized as either less than 7 hours or 7 hours or greater) and spotify listening time in minutes. Each point represents listening time in minutes. Red points represents sleep time of 7 hours or more while blue represents sleep of less than 7 hours. The bar shows the average listening time for each sleep time category, depicting a greater average listening time for days that had 7 or more hours of sleep.
 
 d.  Table presentation (10 points) Using gt or flextable, create a table with the same data summary that you describe in part a and visualized in part b. For example, if you described and visualized means, make a table with means. If you need to, round any numbers to one decimal point.
 
@@ -196,4 +197,25 @@ sleep_summary |>
     sleep = "sleep",
     mean = "average spotify time (min)")
 ```
+
+# Problem #2: 
+## a. Describe in words what an affective visualization could look like for your personal data (3-5 sentences). (2 points)
+
+The visualization depicts JBL speakers, which represent columns referring to the average listening time for the two categoies of sleep time (>=7 hours, <7 hours). The music clefs represent underlying data points, where each clef is one observation. 
+
+## b. Create a sketch (on paper) of your idea. (2 points)
+## c. Make a draft of your visualization. (12 points)
+
+## d. Write an artist statement. (8 points)
+An artist statement gives the audience context to understand your work. For each of the following points, write 1-2 sentences to address:
+
+the content of your piece (what are you showing?) The piece includes JBL speakers, which represent columns referring to the average listening time for the two categories of sleep time (>=7 hours, <7 hours). The music clefs represent underlying data points, where each clef is one observation. 
+
+the influences (what did techniques/artists/etc. did you find influential in creating your work?)
+I wanted to make sure the art wasn't too abstract, so that the viewer could still understand what the visual is depicting. The JBL is a pretty common everyday object and I thought it would be relevant since the corresponding ggplot shows the relationship between music listening time and sleep. 
+
+the form of your work (written code, watercolor, oil painting, etc.)
+your process (how did you create your work?)
+I sketched the visual on paper. I later did a digital version to make it more polished. 
+
 
