@@ -22,7 +22,7 @@ In 1-2 sentences, describe how you could summarize your data to compare your res
 
 Be sure to describe why comparing between the groups you chose is informative. For example, you might calculate the mean number of steps you take to compare between week days, but what about those weekdays is different (e.g. “I could calculate the mean number of steps I took to compare average step count between weekdays because I have more classes on Monday than on any other day of the week, so I think I walk more on Monday.”)
 
-I could calculate the mean listening time for each mood level, since on days where I'm more stressed, it could be correlated with more studying and I usually listen to music while studying. I could calculate the mean mood levels for days where I receive less than 7 hours of sleep and for days where I receive 7 or more hours of sleep since I think I will have lower mood levels on days where I receive relatively less sleep.
+I could calculate the mean spotify listening time to the hours of sleep I receive since on days when I'm more tired, I think I have less impulse control and would be more likely to get instant gratification from listening to music. I will find and compare the average listening time on days with <7 hours of sleep and on days with 7 hours or more of sleep. 
 
 ## b. Visualization (10 points):
 
@@ -120,7 +120,7 @@ ggplot(data = cleandata, #using the cleandata dataframe
 ```
 
 ```{r}
-#create a plot showing spotify listening time vs sleep (>7 and <7 on x-axis, listening time on y-axis)
+#create a gt table showing sleep and average spotify listening time
 
 library(dplyr)
 library(gt)
@@ -130,13 +130,11 @@ music_sleep <- cleansleep |>
     sleep < 7 ~ "less than 7 hours",
     sleep >= 7 ~ "7 hours or more"
   ))
-
 sleep_summary <- music_sleep |> 
   group_by(sleep) |> 
   summarize(mean = mean(spotify_time)) |> 
   mutate(mean = round(mean, 1)) |> 
   select(sleep, mean)
-  
 sleep_summary |> 
   gt() |> 
     cols_label( #renaming columns 
@@ -146,6 +144,7 @@ sleep_summary |>
 ```
 
 ```{r}
+#Figure 4. create a plot showing spotify listening time vs sleep (>7 and <7 on x-axis, listening time on y-axis)
 ggplot(data = music_sleep,
        aes(x = sleep,
            y = spotify_time,
@@ -173,7 +172,28 @@ ggplot(data = music_sleep,
 # c. Caption (5 points):
 
 Write a caption for your figure.
-Figure 4. Figure depicts relationship between sleep time (categorized as either less than 7 hours or 7 hours or greater) and spotify listening time in minutes. Each point represents listening time in minutes. Red points represents sleep time of 7 hours or more while blue represents sleep of less than 7 hours. The boxplot shows the 
+
+Figure 4. Figure depicts relationship between sleep time (categorized as either less than 7 hours or 7 hours or greater) and spotify listening time in minutes. Each point represents listening time in minutes. Red points represents sleep time of 7 hours or more while blue represents sleep of less than 7 hours. The bar shows the average listening time for each sleep time category, depicting a greater average listening time for days that had 7 or more hours of sleep.  
 
 
 d.  Table presentation (10 points) Using gt or flextable, create a table with the same data summary that you describe in part a and visualized in part b. For example, if you described and visualized means, make a table with means. If you need to, round any numbers to one decimal point.
+
+```{r}
+music_sleep <- cleansleep |>
+  clean_names() |> 
+  mutate(sleep = case_when(
+    sleep < 7 ~ "less than 7 hours",
+    sleep >= 7 ~ "7 hours or more"
+  ))
+sleep_summary <- music_sleep |> 
+  group_by(sleep) |> 
+  summarize(mean = mean(spotify_time)) |> 
+  mutate(mean = round(mean, 1)) |> 
+  select(sleep, mean)
+sleep_summary |> 
+  gt() |> 
+    cols_label( #renaming columns 
+    sleep = "sleep",
+    mean = "average spotify time (min)")
+```
+
