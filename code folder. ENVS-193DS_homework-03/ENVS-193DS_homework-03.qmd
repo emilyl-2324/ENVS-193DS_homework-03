@@ -4,6 +4,10 @@ name: "Emily Lombardi"
 date: 6/2/25
 format: html
 editor: visual
+output:
+  html_document:
+    toc: true
+    toc_float: true
 ---
 
 https://github.com/emilyl-2324/ENVS-193DS_homework-03.git

@@ -105,12 +105,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>https://github.com/emilyl-2324/ENVS-193DS_homework-03.git</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co">#general use</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here) <span class="co">#file organization</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt) <span class="co">#visualizing table</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor) <span class="co">#cleaning dataframes</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl) <span class="co">#reading excel files</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr) <span class="co">#provides grammar for data manipulation</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="problem-1" class="level1">
 <h1>Problem 1:</h1>
@@ -265,23 +265,23 @@ dbl (4): mood level, spotify time, total screen time, sleep
 <span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean =</span> <span class="st">"average spotify time"</span></span>
 <span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="sfujekrcss" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#sfujekrcss table {
+<div id="snfabvtejy" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#snfabvtejy table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#sfujekrcss thead, #sfujekrcss tbody, #sfujekrcss tfoot, #sfujekrcss tr, #sfujekrcss td, #sfujekrcss th {
+#snfabvtejy thead, #snfabvtejy tbody, #snfabvtejy tfoot, #snfabvtejy tr, #snfabvtejy td, #snfabvtejy th {
   border-style: none;
 }
 
-#sfujekrcss p {
+#snfabvtejy p {
   margin: 0;
   padding: 0;
 }
 
-#sfujekrcss .gt_table {
+#snfabvtejy .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -307,12 +307,12 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-left-color: #D3D3D3;
 }
 
-#sfujekrcss .gt_caption {
+#snfabvtejy .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#sfujekrcss .gt_title {
+#snfabvtejy .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -324,7 +324,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-bottom-width: 0;
 }
 
-#sfujekrcss .gt_subtitle {
+#snfabvtejy .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -336,7 +336,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-top-width: 0;
 }
 
-#sfujekrcss .gt_heading {
+#snfabvtejy .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -348,13 +348,13 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-right-color: #D3D3D3;
 }
 
-#sfujekrcss .gt_bottom_border {
+#snfabvtejy .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#sfujekrcss .gt_col_headings {
+#snfabvtejy .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -369,7 +369,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-right-color: #D3D3D3;
 }
 
-#sfujekrcss .gt_col_heading {
+#snfabvtejy .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -389,7 +389,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   overflow-x: hidden;
 }
 
-#sfujekrcss .gt_column_spanner_outer {
+#snfabvtejy .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -401,15 +401,15 @@ dbl (4): mood level, spotify time, total screen time, sleep
   padding-right: 4px;
 }
 
-#sfujekrcss .gt_column_spanner_outer:first-child {
+#snfabvtejy .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#sfujekrcss .gt_column_spanner_outer:last-child {
+#snfabvtejy .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#sfujekrcss .gt_column_spanner {
+#snfabvtejy .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -421,11 +421,11 @@ dbl (4): mood level, spotify time, total screen time, sleep
   width: 100%;
 }
 
-#sfujekrcss .gt_spanner_row {
+#snfabvtejy .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#sfujekrcss .gt_group_heading {
+#snfabvtejy .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -451,7 +451,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   text-align: left;
 }
 
-#sfujekrcss .gt_empty_group_heading {
+#snfabvtejy .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -466,15 +466,15 @@ dbl (4): mood level, spotify time, total screen time, sleep
   vertical-align: middle;
 }
 
-#sfujekrcss .gt_from_md > :first-child {
+#snfabvtejy .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#sfujekrcss .gt_from_md > :last-child {
+#snfabvtejy .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#sfujekrcss .gt_row {
+#snfabvtejy .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -493,7 +493,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   overflow-x: hidden;
 }
 
-#sfujekrcss .gt_stub {
+#snfabvtejy .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -506,7 +506,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   padding-right: 5px;
 }
 
-#sfujekrcss .gt_stub_row_group {
+#snfabvtejy .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -520,15 +520,15 @@ dbl (4): mood level, spotify time, total screen time, sleep
   vertical-align: top;
 }
 
-#sfujekrcss .gt_row_group_first td {
+#snfabvtejy .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#sfujekrcss .gt_row_group_first th {
+#snfabvtejy .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#sfujekrcss .gt_summary_row {
+#snfabvtejy .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -538,16 +538,16 @@ dbl (4): mood level, spotify time, total screen time, sleep
   padding-right: 5px;
 }
 
-#sfujekrcss .gt_first_summary_row {
+#snfabvtejy .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#sfujekrcss .gt_first_summary_row.thick {
+#snfabvtejy .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#sfujekrcss .gt_last_summary_row {
+#snfabvtejy .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -557,7 +557,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-bottom-color: #D3D3D3;
 }
 
-#sfujekrcss .gt_grand_summary_row {
+#snfabvtejy .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -567,7 +567,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   padding-right: 5px;
 }
 
-#sfujekrcss .gt_first_grand_summary_row {
+#snfabvtejy .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -577,7 +577,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-top-color: #D3D3D3;
 }
 
-#sfujekrcss .gt_last_grand_summary_row_top {
+#snfabvtejy .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -587,11 +587,11 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-bottom-color: #D3D3D3;
 }
 
-#sfujekrcss .gt_striped {
+#snfabvtejy .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#sfujekrcss .gt_table_body {
+#snfabvtejy .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -600,7 +600,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-bottom-color: #D3D3D3;
 }
 
-#sfujekrcss .gt_footnotes {
+#snfabvtejy .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -614,7 +614,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-right-color: #D3D3D3;
 }
 
-#sfujekrcss .gt_footnote {
+#snfabvtejy .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -623,7 +623,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   padding-right: 5px;
 }
 
-#sfujekrcss .gt_sourcenotes {
+#snfabvtejy .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -637,7 +637,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-right-color: #D3D3D3;
 }
 
-#sfujekrcss .gt_sourcenote {
+#snfabvtejy .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -645,72 +645,72 @@ dbl (4): mood level, spotify time, total screen time, sleep
   padding-right: 5px;
 }
 
-#sfujekrcss .gt_left {
+#snfabvtejy .gt_left {
   text-align: left;
 }
 
-#sfujekrcss .gt_center {
+#snfabvtejy .gt_center {
   text-align: center;
 }
 
-#sfujekrcss .gt_right {
+#snfabvtejy .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#sfujekrcss .gt_font_normal {
+#snfabvtejy .gt_font_normal {
   font-weight: normal;
 }
 
-#sfujekrcss .gt_font_bold {
+#snfabvtejy .gt_font_bold {
   font-weight: bold;
 }
 
-#sfujekrcss .gt_font_italic {
+#snfabvtejy .gt_font_italic {
   font-style: italic;
 }
 
-#sfujekrcss .gt_super {
+#snfabvtejy .gt_super {
   font-size: 65%;
 }
 
-#sfujekrcss .gt_footnote_marks {
+#snfabvtejy .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#sfujekrcss .gt_asterisk {
+#snfabvtejy .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#sfujekrcss .gt_indent_1 {
+#snfabvtejy .gt_indent_1 {
   text-indent: 5px;
 }
 
-#sfujekrcss .gt_indent_2 {
+#snfabvtejy .gt_indent_2 {
   text-indent: 10px;
 }
 
-#sfujekrcss .gt_indent_3 {
+#snfabvtejy .gt_indent_3 {
   text-indent: 15px;
 }
 
-#sfujekrcss .gt_indent_4 {
+#snfabvtejy .gt_indent_4 {
   text-indent: 20px;
 }
 
-#sfujekrcss .gt_indent_5 {
+#snfabvtejy .gt_indent_5 {
   text-indent: 25px;
 }
 
-#sfujekrcss .katex-display {
+#snfabvtejy .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#sfujekrcss div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#snfabvtejy div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -795,23 +795,23 @@ dbl (4): mood level, spotify time, total screen time, sleep
 <span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">sleep =</span> <span class="st">"sleep"</span>,</span>
 <span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean =</span> <span class="st">"average spotify time (min)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="jmpzawgixz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#jmpzawgixz table {
+<div id="xlskikgzya" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xlskikgzya table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#jmpzawgixz thead, #jmpzawgixz tbody, #jmpzawgixz tfoot, #jmpzawgixz tr, #jmpzawgixz td, #jmpzawgixz th {
+#xlskikgzya thead, #xlskikgzya tbody, #xlskikgzya tfoot, #xlskikgzya tr, #xlskikgzya td, #xlskikgzya th {
   border-style: none;
 }
 
-#jmpzawgixz p {
+#xlskikgzya p {
   margin: 0;
   padding: 0;
 }
 
-#jmpzawgixz .gt_table {
+#xlskikgzya .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -837,12 +837,12 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-left-color: #D3D3D3;
 }
 
-#jmpzawgixz .gt_caption {
+#xlskikgzya .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#jmpzawgixz .gt_title {
+#xlskikgzya .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -854,7 +854,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-bottom-width: 0;
 }
 
-#jmpzawgixz .gt_subtitle {
+#xlskikgzya .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -866,7 +866,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-top-width: 0;
 }
 
-#jmpzawgixz .gt_heading {
+#xlskikgzya .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -878,13 +878,13 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-right-color: #D3D3D3;
 }
 
-#jmpzawgixz .gt_bottom_border {
+#xlskikgzya .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#jmpzawgixz .gt_col_headings {
+#xlskikgzya .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -899,7 +899,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-right-color: #D3D3D3;
 }
 
-#jmpzawgixz .gt_col_heading {
+#xlskikgzya .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -919,7 +919,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   overflow-x: hidden;
 }
 
-#jmpzawgixz .gt_column_spanner_outer {
+#xlskikgzya .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -931,15 +931,15 @@ dbl (4): mood level, spotify time, total screen time, sleep
   padding-right: 4px;
 }
 
-#jmpzawgixz .gt_column_spanner_outer:first-child {
+#xlskikgzya .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#jmpzawgixz .gt_column_spanner_outer:last-child {
+#xlskikgzya .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#jmpzawgixz .gt_column_spanner {
+#xlskikgzya .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -951,11 +951,11 @@ dbl (4): mood level, spotify time, total screen time, sleep
   width: 100%;
 }
 
-#jmpzawgixz .gt_spanner_row {
+#xlskikgzya .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#jmpzawgixz .gt_group_heading {
+#xlskikgzya .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -981,7 +981,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   text-align: left;
 }
 
-#jmpzawgixz .gt_empty_group_heading {
+#xlskikgzya .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -996,15 +996,15 @@ dbl (4): mood level, spotify time, total screen time, sleep
   vertical-align: middle;
 }
 
-#jmpzawgixz .gt_from_md > :first-child {
+#xlskikgzya .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#jmpzawgixz .gt_from_md > :last-child {
+#xlskikgzya .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#jmpzawgixz .gt_row {
+#xlskikgzya .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1023,7 +1023,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   overflow-x: hidden;
 }
 
-#jmpzawgixz .gt_stub {
+#xlskikgzya .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1036,7 +1036,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   padding-right: 5px;
 }
 
-#jmpzawgixz .gt_stub_row_group {
+#xlskikgzya .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1050,15 +1050,15 @@ dbl (4): mood level, spotify time, total screen time, sleep
   vertical-align: top;
 }
 
-#jmpzawgixz .gt_row_group_first td {
+#xlskikgzya .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#jmpzawgixz .gt_row_group_first th {
+#xlskikgzya .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#jmpzawgixz .gt_summary_row {
+#xlskikgzya .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1068,16 +1068,16 @@ dbl (4): mood level, spotify time, total screen time, sleep
   padding-right: 5px;
 }
 
-#jmpzawgixz .gt_first_summary_row {
+#xlskikgzya .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#jmpzawgixz .gt_first_summary_row.thick {
+#xlskikgzya .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#jmpzawgixz .gt_last_summary_row {
+#xlskikgzya .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1087,7 +1087,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-bottom-color: #D3D3D3;
 }
 
-#jmpzawgixz .gt_grand_summary_row {
+#xlskikgzya .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1097,7 +1097,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   padding-right: 5px;
 }
 
-#jmpzawgixz .gt_first_grand_summary_row {
+#xlskikgzya .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1107,7 +1107,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-top-color: #D3D3D3;
 }
 
-#jmpzawgixz .gt_last_grand_summary_row_top {
+#xlskikgzya .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1117,11 +1117,11 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-bottom-color: #D3D3D3;
 }
 
-#jmpzawgixz .gt_striped {
+#xlskikgzya .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#jmpzawgixz .gt_table_body {
+#xlskikgzya .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1130,7 +1130,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-bottom-color: #D3D3D3;
 }
 
-#jmpzawgixz .gt_footnotes {
+#xlskikgzya .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1144,7 +1144,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-right-color: #D3D3D3;
 }
 
-#jmpzawgixz .gt_footnote {
+#xlskikgzya .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1153,7 +1153,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   padding-right: 5px;
 }
 
-#jmpzawgixz .gt_sourcenotes {
+#xlskikgzya .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1167,7 +1167,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-right-color: #D3D3D3;
 }
 
-#jmpzawgixz .gt_sourcenote {
+#xlskikgzya .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1175,72 +1175,72 @@ dbl (4): mood level, spotify time, total screen time, sleep
   padding-right: 5px;
 }
 
-#jmpzawgixz .gt_left {
+#xlskikgzya .gt_left {
   text-align: left;
 }
 
-#jmpzawgixz .gt_center {
+#xlskikgzya .gt_center {
   text-align: center;
 }
 
-#jmpzawgixz .gt_right {
+#xlskikgzya .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#jmpzawgixz .gt_font_normal {
+#xlskikgzya .gt_font_normal {
   font-weight: normal;
 }
 
-#jmpzawgixz .gt_font_bold {
+#xlskikgzya .gt_font_bold {
   font-weight: bold;
 }
 
-#jmpzawgixz .gt_font_italic {
+#xlskikgzya .gt_font_italic {
   font-style: italic;
 }
 
-#jmpzawgixz .gt_super {
+#xlskikgzya .gt_super {
   font-size: 65%;
 }
 
-#jmpzawgixz .gt_footnote_marks {
+#xlskikgzya .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#jmpzawgixz .gt_asterisk {
+#xlskikgzya .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#jmpzawgixz .gt_indent_1 {
+#xlskikgzya .gt_indent_1 {
   text-indent: 5px;
 }
 
-#jmpzawgixz .gt_indent_2 {
+#xlskikgzya .gt_indent_2 {
   text-indent: 10px;
 }
 
-#jmpzawgixz .gt_indent_3 {
+#xlskikgzya .gt_indent_3 {
   text-indent: 15px;
 }
 
-#jmpzawgixz .gt_indent_4 {
+#xlskikgzya .gt_indent_4 {
   text-indent: 20px;
 }
 
-#jmpzawgixz .gt_indent_5 {
+#xlskikgzya .gt_indent_5 {
   text-indent: 25px;
 }
 
-#jmpzawgixz .katex-display {
+#xlskikgzya .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#jmpzawgixz div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#xlskikgzya div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
