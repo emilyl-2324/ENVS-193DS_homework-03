@@ -41,11 +41,12 @@ Use colors in your figure (that are not the default ggplot settings).
 Make sure your axis labels are full, readable text (not just your column names).
 
 ```{r}
-datasheet <- read_csv("envs193dsmusicdata.csv")
+#Figure 1. mood vs. spotify listening time 
+datasheet <- read_csv("envs193dsmusicdata.csv") #create object from csv
 
 cleandata <- datasheet |> #storing clean df as an object "cleandata"
   clean_names() |> #clean column names 
-  mutate(mood_level = case_when(
+  mutate(mood_level = case_when( #edit numeric values into words
     mood_level == 2 ~ "bad",
     mood_level == 3 ~ "average",
     mood_level == 4 ~ "good")) |> 
@@ -59,7 +60,7 @@ ggplot(data = cleandata, #using the cleandata dataframe
            y = spotify_time,  
            color = mood_level)) + #assigning color of the data based on mood 
   geom_boxplot(width = 0.4) + # first layer should be a boxplot 
-  geom_jitter(size = 1.9,
+  geom_jitter(size = 1.9, #create jitter plot
               width = 0.1, # making the points jitter horizontally 
               height = 0) + # making sure points don't jitter vertically 
   labs( #add titles
@@ -76,36 +77,36 @@ ggplot(data = cleandata, #using the cleandata dataframe
 ```
 
 ```{r}
-#create a plot showing caffeine consumption (yes/no) on x-axis and listening time (min) on y-axis 
-ggplot(data = cleandata,
+#Figure 2. create a plot showing caffeine consumption (yes/no) on x-axis and listening time (min) on y-axis 
+ggplot(data = cleandata, #using cleandata dataframe for plot, assign color depending on whether caffeine was consumed. 
        aes(x = caffeine, 
            y = spotify_time, 
            color = caffeine)) +
-  geom_boxplot(width = 0.4) + 
-  geom_jitter(size = 1.9, 
+  geom_boxplot(width = 0.4) + #adding boxplot layer 
+  geom_jitter(size = 1.9,  #adding scatterplot layer
               width = 0.1, 
               height = 0) +
-  labs(x = "caffeine consumed",
+  labs(x = "caffeine consumed", #adding lables
        y = "spotify listening time (min)",
        title = "spotify listening time on days with/without caffeine") +
-  theme(legend.position = "none")
+  theme(legend.position = "none") #remove legend
 ```
 
 ```{r}
-#create a scatterplot with screen time (min) on x-axis and spotify listening time (min) on y-axis
-ggplot(data = cleandata, 
+#Figure 3. create a scatterplot with screen time (min) on x-axis and spotify listening time (min) on y-axis
+ggplot(data = cleandata,  #use cleandata dataframe
        aes(x = total_screen_time,
            y = spotify_time)) +
-  geom_jitter(size = 1.7,
+  geom_jitter(size = 1.7, # adds scatterplot layer
               width = 0.1) + 
-  labs(x = "screen time",
+  labs(x = "screen time", #adds label
        y = "spotify listening time",
        title = "spotify listening time and screen time")
   
 ```
 
 ```{r}
-#create a scatterplot with mood on x-axis and screen time on y-axix 
+#Figure 4. create a scatterplot with mood on x-axis and screen time on y-axix 
 ggplot(data = cleandata, #using the cleandata dataframe 
        aes(x = mood_level, #plots mood levels on the x-axis and listening time on the y-axis 
            y = total_screen_time,  
@@ -127,22 +128,22 @@ ggplot(data = cleandata, #using the cleandata dataframe
 ```
 
 ```{r}
-#create a gt table showing sleep and average spotify listening time
+#Table 1. create a gt table showing sleep and average spotify listening time
 cleansleep <- cleandata |> 
   filter(sleep > 0)
   
-music_sleep <- cleansleep |>
+music_sleep <- cleansleep |> #creating new object that categorizes any sleep observation to either greater than or less than 7 hours. 
   clean_names() |> 
   mutate(sleep = case_when(
     sleep < 7 ~ "less than 7 hours",
     sleep >= 7 ~ "7 hours or more"
   ))
-sleep_summary <- music_sleep |> 
+sleep_summary <- music_sleep |> #new object, creating a table grouped by sleep and includes mean listening time. 
   group_by(sleep) |> 
   summarize(mean = mean(spotify_time)) |> 
   mutate(mean = round(mean, 1)) |> 
   select(sleep, mean)
-sleep_summary |> 
+sleep_summary |> #plots the table using sleep_summary dataframe
   gt() |> 
     cols_label( #renaming columns 
     sleep = "sleep",
@@ -151,8 +152,8 @@ sleep_summary |>
 ```
 
 ```{r}
-#Figure 4. create a plot showing spotify listening time vs sleep (>7 and <7 on x-axis, listening time on y-axis)
-ggplot(data = music_sleep,
+#Figure 5. create a plot showing spotify listening time vs sleep (>7 and <7 on x-axis, listening time on y-axis)
+ggplot(data = music_sleep, #uses music_sleep dataframe
        aes(x = sleep,
            y = spotify_time,
            color = sleep)) +
@@ -161,7 +162,7 @@ ggplot(data = music_sleep,
   geom_jitter(size = 1.9,
               width = 0.1, # making the points jitter horizontally 
               height = 0) + # making sure points don't jitter vertically 
-  geom_col(data = sleep_summary,
+  geom_col(data = sleep_summary, #use sleep_summary dataframe to plot mean as a column
            aes(x = sleep,
                y = mean, 
                fill = sleep),
@@ -171,8 +172,8 @@ ggplot(data = music_sleep,
         x = "sleep", 
         y = "listening time (min)",
         title = "Figure 4. Sleep vs Listening Time (min)")+
-  theme_minimal()+ 
-  theme(legend.position = "none")
+  theme_minimal()+  
+  theme(legend.position = "none") #remove legend
 ```
 
 ## c. Caption (5 points):
@@ -184,18 +185,19 @@ Figure 4. Figure depicts relationship between sleep time (categorized as either 
 ## d.  Table presentation (10 points) Using gt or flextable, create a table with the same data summary that you describe in part a and visualized in part b. For example, if you described and visualized means, make a table with means. If you need to, round any numbers to one decimal point.
 
 ```{r}
-music_sleep <- cleansleep |>
+#table 1. sleep and average listening time 
+music_sleep <- cleansleep |> #creating new object that categorizes sleep data into two categories (greater than or less than 7 hours)
   clean_names() |> 
   mutate(sleep = case_when(
     sleep < 7 ~ "less than 7 hours",
     sleep >= 7 ~ "7 hours or more"
   ))
-sleep_summary <- music_sleep |> 
+sleep_summary <- music_sleep |>  #new object to create a table, grouped by sleep categories and shows mean listening time per category 
   group_by(sleep) |> 
   summarize(mean = mean(spotify_time)) |> 
   mutate(mean = round(mean, 1)) |> 
   select(sleep, mean)
-sleep_summary |> 
+sleep_summary |>  #display table 
   gt() |> 
     cols_label( #renaming columns 
     sleep = "sleep",
@@ -211,14 +213,14 @@ The visualization depicts JBL speakers, which represent columns referring to the
 ## b. Create a sketch (on paper) of your idea. (2 points)
 ```{r}
 
-im = load.image("envs-193dsphoto3.jpg")
+im = load.image("envs-193dsphoto3.jpg") #function loads image
 plot(im)
 ```
 
 ## c. Make a draft of your visualization. (12 points)
 ```{r}
 
-im = load.image("envs-193dsphoto2.jpg")
+im = load.image("envs-193dsphoto2.jpg")#function loads image
 plot(im)
 ```
 ## d. Write an artist statement. (8 points)
