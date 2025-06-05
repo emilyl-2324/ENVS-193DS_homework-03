@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2025-06-02">
 
 <title>ENVS-193DS_homework-03</title>
 <style>
@@ -87,6 +88,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 2, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -98,35 +105,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>https://github.com/emilyl-2324/ENVS-193DS_homework-03.git</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.4     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>here() starts at C:/Users/emily/OneDrive/Desktop/2024-2025 WORK/SPRING 2024-2025/ENV S193 DS/ENV S193DS github repo/ENVS193DSrepo/ENVS-193DS_homework-03</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'janitor'
-
-The following objects are masked from 'package:stats':
-
-    chisq.test, fisher.test</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="problem-1" class="level1">
 <h1>Problem 1:</h1>
@@ -142,7 +126,7 @@ The following objects are masked from 'package:stats':
 <p>Use colors in your figure (that are not the default ggplot settings).</p>
 <p>Make sure your axis labels are full, readable text (not just your column names).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>datasheet <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"envs193dsmusicdata.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>datasheet <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"envs193dsmusicdata.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 35 Columns: 6
 ── Column specification ────────────────────────────────────────────────────────
@@ -153,35 +137,35 @@ dbl (4): mood level, spotify time, total screen time, sleep
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>cleandata <span class="ot">&lt;-</span> datasheet <span class="sc">|&gt;</span> <span class="co">#storing clean df as an object "cleandata"</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>() <span class="sc">|&gt;</span> <span class="co">#clean column names </span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mood_level =</span> <span class="fu">case_when</span>(</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    mood_level <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="st">"bad"</span>,</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    mood_level <span class="sc">==</span> <span class="dv">3</span> <span class="sc">~</span> <span class="st">"average"</span>,</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    mood_level <span class="sc">==</span> <span class="dv">4</span> <span class="sc">~</span> <span class="st">"good"</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mood_level =</span> <span class="fu">factor</span>(mood_level, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"bad"</span>, <span class="st">"average"</span>, <span class="st">"good"</span>))) <span class="sc">|&gt;</span> <span class="co"># set order here</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">caffeine =</span> <span class="fu">replace_na</span>(caffeine, <span class="st">"no"</span>)) <span class="co">#replace NA with "no" in caffeine column</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> cleandata, <span class="co">#using the cleandata dataframe </span></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> mood_level, <span class="co">#plots mood levels on the x-axis and listening time on the y-axis </span></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> spotify_time,  </span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> mood_level)) <span class="sc">+</span> <span class="co">#assigning color of the data based on mood </span></span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.4</span>) <span class="sc">+</span> <span class="co"># first layer should be a boxplot </span></span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">size =</span> <span class="fl">1.9</span>,</span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>              <span class="at">width =</span> <span class="fl">0.1</span>, <span class="co"># making the points jitter horizontally </span></span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>              <span class="at">height =</span> <span class="dv">0</span>) <span class="sc">+</span> <span class="co"># making sure points don't jitter vertically </span></span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>( <span class="co">#add titles</span></span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="st">"mood level"</span>, </span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">"spotify listening time (min)"</span>,</span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="st">"spotify listening time vs. mood"</span>) <span class="sc">+</span> </span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>( <span class="co">#assign colors to each mood_level</span></span>
-<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>            <span class="at">values =</span> <span class="fu">c</span>( <span class="st">"bad"</span> <span class="ot">=</span> <span class="st">"red"</span>,</span>
-<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"average"</span> <span class="ot">=</span> <span class="st">"orange"</span>,</span>
-<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"good"</span> <span class="ot">=</span> <span class="st">"darkgreen"</span>)</span>
-<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>                    ) <span class="sc">+</span></span>
-<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="co"># getting rid of the legend</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>cleandata <span class="ot">&lt;-</span> datasheet <span class="sc">|&gt;</span> <span class="co">#storing clean df as an object "cleandata"</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>() <span class="sc">|&gt;</span> <span class="co">#clean column names </span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mood_level =</span> <span class="fu">case_when</span>(</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    mood_level <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="st">"bad"</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    mood_level <span class="sc">==</span> <span class="dv">3</span> <span class="sc">~</span> <span class="st">"average"</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    mood_level <span class="sc">==</span> <span class="dv">4</span> <span class="sc">~</span> <span class="st">"good"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mood_level =</span> <span class="fu">factor</span>(mood_level, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"bad"</span>, <span class="st">"average"</span>, <span class="st">"good"</span>))) <span class="sc">|&gt;</span> <span class="co"># set order here</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">caffeine =</span> <span class="fu">replace_na</span>(caffeine, <span class="st">"no"</span>)) <span class="co">#replace NA with "no" in caffeine column</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> cleandata, <span class="co">#using the cleandata dataframe </span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> mood_level, <span class="co">#plots mood levels on the x-axis and listening time on the y-axis </span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> spotify_time,  </span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> mood_level)) <span class="sc">+</span> <span class="co">#assigning color of the data based on mood </span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.4</span>) <span class="sc">+</span> <span class="co"># first layer should be a boxplot </span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">size =</span> <span class="fl">1.9</span>,</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>              <span class="at">width =</span> <span class="fl">0.1</span>, <span class="co"># making the points jitter horizontally </span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>              <span class="at">height =</span> <span class="dv">0</span>) <span class="sc">+</span> <span class="co"># making sure points don't jitter vertically </span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>( <span class="co">#add titles</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="st">"mood level"</span>, </span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">"spotify listening time (min)"</span>,</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="st">"spotify listening time vs. mood"</span>) <span class="sc">+</span> </span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>( <span class="co">#assign colors to each mood_level</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>            <span class="at">values =</span> <span class="fu">c</span>( <span class="st">"bad"</span> <span class="ot">=</span> <span class="st">"red"</span>,</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"average"</span> <span class="ot">=</span> <span class="st">"orange"</span>,</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"good"</span> <span class="ot">=</span> <span class="st">"darkgreen"</span>)</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>                    ) <span class="sc">+</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="co"># getting rid of the legend</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -191,19 +175,19 @@ dbl (4): mood level, spotify time, total screen time, sleep
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create a plot showing caffeine consumption (yes/no) on x-axis and listening time (min) on y-axis </span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> cleandata,</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> caffeine, </span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> spotify_time, </span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> caffeine)) <span class="sc">+</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.4</span>) <span class="sc">+</span> </span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">size =</span> <span class="fl">1.9</span>, </span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">width =</span> <span class="fl">0.1</span>, </span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">height =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"caffeine consumed"</span>,</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"spotify listening time (min)"</span>,</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"spotify listening time on days with/without caffeine"</span>) <span class="sc">+</span></span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create a plot showing caffeine consumption (yes/no) on x-axis and listening time (min) on y-axis </span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> cleandata,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> caffeine, </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> spotify_time, </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> caffeine)) <span class="sc">+</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.4</span>) <span class="sc">+</span> </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">size =</span> <span class="fl">1.9</span>, </span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">width =</span> <span class="fl">0.1</span>, </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">height =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"caffeine consumed"</span>,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"spotify listening time (min)"</span>,</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"spotify listening time on days with/without caffeine"</span>) <span class="sc">+</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -213,15 +197,15 @@ dbl (4): mood level, spotify time, total screen time, sleep
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create a scatterplot with screen time (min) on x-axis and spotify listening time (min) on y-axis</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> cleandata, </span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> total_screen_time,</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> spotify_time)) <span class="sc">+</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">size =</span> <span class="fl">1.7</span>,</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">width =</span> <span class="fl">0.1</span>) <span class="sc">+</span> </span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"screen time"</span>,</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"spotify listening time"</span>,</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"spotify listening time and screen time"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create a scatterplot with screen time (min) on x-axis and spotify listening time (min) on y-axis</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> cleandata, </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> total_screen_time,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> spotify_time)) <span class="sc">+</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">size =</span> <span class="fl">1.7</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">width =</span> <span class="fl">0.1</span>) <span class="sc">+</span> </span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"screen time"</span>,</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"spotify listening time"</span>,</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"spotify listening time and screen time"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -231,25 +215,25 @@ dbl (4): mood level, spotify time, total screen time, sleep
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create a scatterplot with mood on x-axis and screen time on y-axix </span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> cleandata, <span class="co">#using the cleandata dataframe </span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> mood_level, <span class="co">#plots mood levels on the x-axis and listening time on the y-axis </span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> total_screen_time,  </span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> mood_level)) <span class="sc">+</span> <span class="co">#assigning color of the data based on mood </span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.4</span>) <span class="sc">+</span> <span class="co"># first layer should be a boxplot </span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">size =</span> <span class="fl">1.9</span>,</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">width =</span> <span class="fl">0.1</span>, <span class="co"># making the points jitter horizontally </span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">height =</span> <span class="dv">0</span>) <span class="sc">+</span> <span class="co"># making sure points don't jitter vertically </span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>( <span class="co">#add titles</span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="st">"mood level"</span>, </span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">"daily screen time (min)"</span>,</span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="st">"daily screen time vs. mood"</span>) <span class="sc">+</span> </span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>( <span class="co">#assign colors to each mood_level</span></span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>            <span class="at">values =</span> <span class="fu">c</span>( <span class="st">"bad"</span> <span class="ot">=</span> <span class="st">"red"</span>,</span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"average"</span> <span class="ot">=</span> <span class="st">"magenta"</span>,</span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"good"</span> <span class="ot">=</span> <span class="st">"purple"</span>)</span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>                    ) <span class="sc">+</span></span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="co"># getting rid of the legend</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create a scatterplot with mood on x-axis and screen time on y-axix </span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> cleandata, <span class="co">#using the cleandata dataframe </span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> mood_level, <span class="co">#plots mood levels on the x-axis and listening time on the y-axis </span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> total_screen_time,  </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> mood_level)) <span class="sc">+</span> <span class="co">#assigning color of the data based on mood </span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.4</span>) <span class="sc">+</span> <span class="co"># first layer should be a boxplot </span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">size =</span> <span class="fl">1.9</span>,</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">width =</span> <span class="fl">0.1</span>, <span class="co"># making the points jitter horizontally </span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">height =</span> <span class="dv">0</span>) <span class="sc">+</span> <span class="co"># making sure points don't jitter vertically </span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>( <span class="co">#add titles</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="st">"mood level"</span>, </span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">"daily screen time (min)"</span>,</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="st">"daily screen time vs. mood"</span>) <span class="sc">+</span> </span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>( <span class="co">#assign colors to each mood_level</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>            <span class="at">values =</span> <span class="fu">c</span>( <span class="st">"bad"</span> <span class="ot">=</span> <span class="st">"red"</span>,</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"average"</span> <span class="ot">=</span> <span class="st">"magenta"</span>,</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"good"</span> <span class="ot">=</span> <span class="st">"purple"</span>)</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>                    ) <span class="sc">+</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="co"># getting rid of the legend</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -259,45 +243,45 @@ dbl (4): mood level, spotify time, total screen time, sleep
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create a gt table showing sleep and average spotify listening time</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>cleansleep <span class="ot">&lt;-</span> cleandata <span class="sc">|&gt;</span> </span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sleep <span class="sc">&gt;</span> <span class="dv">0</span>)</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>music_sleep <span class="ot">&lt;-</span> cleansleep <span class="sc">|&gt;</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sleep =</span> <span class="fu">case_when</span>(</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    sleep <span class="sc">&lt;</span> <span class="dv">7</span> <span class="sc">~</span> <span class="st">"less than 7 hours"</span>,</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    sleep <span class="sc">&gt;=</span> <span class="dv">7</span> <span class="sc">~</span> <span class="st">"7 hours or more"</span></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  ))</span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>sleep_summary <span class="ot">&lt;-</span> music_sleep <span class="sc">|&gt;</span> </span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sleep) <span class="sc">|&gt;</span> </span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean =</span> <span class="fu">mean</span>(spotify_time)) <span class="sc">|&gt;</span> </span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mean =</span> <span class="fu">round</span>(mean, <span class="dv">1</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sleep, mean)</span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>sleep_summary <span class="sc">|&gt;</span> </span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cols_label</span>( <span class="co">#renaming columns </span></span>
-<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">sleep =</span> <span class="st">"sleep"</span>,</span>
-<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean =</span> <span class="st">"average spotify time"</span></span>
-<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create a gt table showing sleep and average spotify listening time</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>cleansleep <span class="ot">&lt;-</span> cleandata <span class="sc">|&gt;</span> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sleep <span class="sc">&gt;</span> <span class="dv">0</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>music_sleep <span class="ot">&lt;-</span> cleansleep <span class="sc">|&gt;</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sleep =</span> <span class="fu">case_when</span>(</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    sleep <span class="sc">&lt;</span> <span class="dv">7</span> <span class="sc">~</span> <span class="st">"less than 7 hours"</span>,</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    sleep <span class="sc">&gt;=</span> <span class="dv">7</span> <span class="sc">~</span> <span class="st">"7 hours or more"</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>sleep_summary <span class="ot">&lt;-</span> music_sleep <span class="sc">|&gt;</span> </span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sleep) <span class="sc">|&gt;</span> </span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean =</span> <span class="fu">mean</span>(spotify_time)) <span class="sc">|&gt;</span> </span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mean =</span> <span class="fu">round</span>(mean, <span class="dv">1</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sleep, mean)</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>sleep_summary <span class="sc">|&gt;</span> </span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cols_label</span>( <span class="co">#renaming columns </span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">sleep =</span> <span class="st">"sleep"</span>,</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean =</span> <span class="st">"average spotify time"</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="tgtfsdcdng" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#tgtfsdcdng table {
+<div id="sfujekrcss" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#sfujekrcss table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#tgtfsdcdng thead, #tgtfsdcdng tbody, #tgtfsdcdng tfoot, #tgtfsdcdng tr, #tgtfsdcdng td, #tgtfsdcdng th {
+#sfujekrcss thead, #sfujekrcss tbody, #sfujekrcss tfoot, #sfujekrcss tr, #sfujekrcss td, #sfujekrcss th {
   border-style: none;
 }
 
-#tgtfsdcdng p {
+#sfujekrcss p {
   margin: 0;
   padding: 0;
 }
 
-#tgtfsdcdng .gt_table {
+#sfujekrcss .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -323,12 +307,12 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-left-color: #D3D3D3;
 }
 
-#tgtfsdcdng .gt_caption {
+#sfujekrcss .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#tgtfsdcdng .gt_title {
+#sfujekrcss .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -340,7 +324,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-bottom-width: 0;
 }
 
-#tgtfsdcdng .gt_subtitle {
+#sfujekrcss .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -352,7 +336,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-top-width: 0;
 }
 
-#tgtfsdcdng .gt_heading {
+#sfujekrcss .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -364,13 +348,13 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-right-color: #D3D3D3;
 }
 
-#tgtfsdcdng .gt_bottom_border {
+#sfujekrcss .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#tgtfsdcdng .gt_col_headings {
+#sfujekrcss .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -385,7 +369,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-right-color: #D3D3D3;
 }
 
-#tgtfsdcdng .gt_col_heading {
+#sfujekrcss .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -405,7 +389,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   overflow-x: hidden;
 }
 
-#tgtfsdcdng .gt_column_spanner_outer {
+#sfujekrcss .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -417,15 +401,15 @@ dbl (4): mood level, spotify time, total screen time, sleep
   padding-right: 4px;
 }
 
-#tgtfsdcdng .gt_column_spanner_outer:first-child {
+#sfujekrcss .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#tgtfsdcdng .gt_column_spanner_outer:last-child {
+#sfujekrcss .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#tgtfsdcdng .gt_column_spanner {
+#sfujekrcss .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -437,11 +421,11 @@ dbl (4): mood level, spotify time, total screen time, sleep
   width: 100%;
 }
 
-#tgtfsdcdng .gt_spanner_row {
+#sfujekrcss .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#tgtfsdcdng .gt_group_heading {
+#sfujekrcss .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -467,7 +451,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   text-align: left;
 }
 
-#tgtfsdcdng .gt_empty_group_heading {
+#sfujekrcss .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -482,15 +466,15 @@ dbl (4): mood level, spotify time, total screen time, sleep
   vertical-align: middle;
 }
 
-#tgtfsdcdng .gt_from_md > :first-child {
+#sfujekrcss .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#tgtfsdcdng .gt_from_md > :last-child {
+#sfujekrcss .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#tgtfsdcdng .gt_row {
+#sfujekrcss .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -509,7 +493,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   overflow-x: hidden;
 }
 
-#tgtfsdcdng .gt_stub {
+#sfujekrcss .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -522,7 +506,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   padding-right: 5px;
 }
 
-#tgtfsdcdng .gt_stub_row_group {
+#sfujekrcss .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -536,15 +520,15 @@ dbl (4): mood level, spotify time, total screen time, sleep
   vertical-align: top;
 }
 
-#tgtfsdcdng .gt_row_group_first td {
+#sfujekrcss .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#tgtfsdcdng .gt_row_group_first th {
+#sfujekrcss .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#tgtfsdcdng .gt_summary_row {
+#sfujekrcss .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -554,16 +538,16 @@ dbl (4): mood level, spotify time, total screen time, sleep
   padding-right: 5px;
 }
 
-#tgtfsdcdng .gt_first_summary_row {
+#sfujekrcss .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#tgtfsdcdng .gt_first_summary_row.thick {
+#sfujekrcss .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#tgtfsdcdng .gt_last_summary_row {
+#sfujekrcss .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -573,7 +557,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-bottom-color: #D3D3D3;
 }
 
-#tgtfsdcdng .gt_grand_summary_row {
+#sfujekrcss .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -583,7 +567,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   padding-right: 5px;
 }
 
-#tgtfsdcdng .gt_first_grand_summary_row {
+#sfujekrcss .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -593,7 +577,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-top-color: #D3D3D3;
 }
 
-#tgtfsdcdng .gt_last_grand_summary_row_top {
+#sfujekrcss .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -603,11 +587,11 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-bottom-color: #D3D3D3;
 }
 
-#tgtfsdcdng .gt_striped {
+#sfujekrcss .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#tgtfsdcdng .gt_table_body {
+#sfujekrcss .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -616,7 +600,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-bottom-color: #D3D3D3;
 }
 
-#tgtfsdcdng .gt_footnotes {
+#sfujekrcss .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -630,7 +614,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-right-color: #D3D3D3;
 }
 
-#tgtfsdcdng .gt_footnote {
+#sfujekrcss .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -639,7 +623,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   padding-right: 5px;
 }
 
-#tgtfsdcdng .gt_sourcenotes {
+#sfujekrcss .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -653,7 +637,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-right-color: #D3D3D3;
 }
 
-#tgtfsdcdng .gt_sourcenote {
+#sfujekrcss .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -661,72 +645,72 @@ dbl (4): mood level, spotify time, total screen time, sleep
   padding-right: 5px;
 }
 
-#tgtfsdcdng .gt_left {
+#sfujekrcss .gt_left {
   text-align: left;
 }
 
-#tgtfsdcdng .gt_center {
+#sfujekrcss .gt_center {
   text-align: center;
 }
 
-#tgtfsdcdng .gt_right {
+#sfujekrcss .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#tgtfsdcdng .gt_font_normal {
+#sfujekrcss .gt_font_normal {
   font-weight: normal;
 }
 
-#tgtfsdcdng .gt_font_bold {
+#sfujekrcss .gt_font_bold {
   font-weight: bold;
 }
 
-#tgtfsdcdng .gt_font_italic {
+#sfujekrcss .gt_font_italic {
   font-style: italic;
 }
 
-#tgtfsdcdng .gt_super {
+#sfujekrcss .gt_super {
   font-size: 65%;
 }
 
-#tgtfsdcdng .gt_footnote_marks {
+#sfujekrcss .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#tgtfsdcdng .gt_asterisk {
+#sfujekrcss .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#tgtfsdcdng .gt_indent_1 {
+#sfujekrcss .gt_indent_1 {
   text-indent: 5px;
 }
 
-#tgtfsdcdng .gt_indent_2 {
+#sfujekrcss .gt_indent_2 {
   text-indent: 10px;
 }
 
-#tgtfsdcdng .gt_indent_3 {
+#sfujekrcss .gt_indent_3 {
   text-indent: 15px;
 }
 
-#tgtfsdcdng .gt_indent_4 {
+#sfujekrcss .gt_indent_4 {
   text-indent: 20px;
 }
 
-#tgtfsdcdng .gt_indent_5 {
+#sfujekrcss .gt_indent_5 {
   text-indent: 25px;
 }
 
-#tgtfsdcdng .katex-display {
+#sfujekrcss .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#tgtfsdcdng div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#sfujekrcss div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -754,28 +738,28 @@ dbl (4): mood level, spotify time, total screen time, sleep
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Figure 4. create a plot showing spotify listening time vs sleep (&gt;7 and &lt;7 on x-axis, listening time on y-axis)</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> music_sleep,</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> sleep,</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> spotify_time,</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> sleep)) <span class="sc">+</span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">#geom_boxplot(width = 0.4,</span></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>               <span class="co">#alpha = 0.5) + # first layer should be a boxplot </span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">size =</span> <span class="fl">1.9</span>,</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">width =</span> <span class="fl">0.1</span>, <span class="co"># making the points jitter horizontally </span></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>              <span class="at">height =</span> <span class="dv">0</span>) <span class="sc">+</span> <span class="co"># making sure points don't jitter vertically </span></span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">data =</span> sleep_summary,</span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>           <span class="fu">aes</span>(<span class="at">x =</span> sleep,</span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>               <span class="at">y =</span> mean, </span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>               <span class="at">fill =</span> sleep),</span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>           <span class="at">width =</span> <span class="fl">0.2</span>,</span>
-<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>           <span class="at">alpha =</span> <span class="fl">0.1</span>)<span class="sc">+</span></span>
-<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>( <span class="co">#add titles</span></span>
-<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="st">"sleep"</span>, </span>
-<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">"listening time (min)"</span>,</span>
-<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="st">"Figure 4. Sleep vs Listening Time (min)"</span>)<span class="sc">+</span></span>
-<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span> </span>
-<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Figure 4. create a plot showing spotify listening time vs sleep (&gt;7 and &lt;7 on x-axis, listening time on y-axis)</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> music_sleep,</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> sleep,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> spotify_time,</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> sleep)) <span class="sc">+</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">#geom_boxplot(width = 0.4,</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>               <span class="co">#alpha = 0.5) + # first layer should be a boxplot </span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">size =</span> <span class="fl">1.9</span>,</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">width =</span> <span class="fl">0.1</span>, <span class="co"># making the points jitter horizontally </span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>              <span class="at">height =</span> <span class="dv">0</span>) <span class="sc">+</span> <span class="co"># making sure points don't jitter vertically </span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">data =</span> sleep_summary,</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>           <span class="fu">aes</span>(<span class="at">x =</span> sleep,</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>               <span class="at">y =</span> mean, </span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>               <span class="at">fill =</span> sleep),</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>           <span class="at">width =</span> <span class="fl">0.2</span>,</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>           <span class="at">alpha =</span> <span class="fl">0.1</span>)<span class="sc">+</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>( <span class="co">#add titles</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="st">"sleep"</span>, </span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">"listening time (min)"</span>,</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="st">"Figure 4. Sleep vs Listening Time (min)"</span>)<span class="sc">+</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span> </span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -794,40 +778,40 @@ dbl (4): mood level, spotify time, total screen time, sleep
 <li>Table presentation (10 points) Using gt or flextable, create a table with the same data summary that you describe in part a and visualized in part b. For example, if you described and visualized means, make a table with means. If you need to, round any numbers to one decimal point.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>music_sleep <span class="ot">&lt;-</span> cleansleep <span class="sc">|&gt;</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sleep =</span> <span class="fu">case_when</span>(</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    sleep <span class="sc">&lt;</span> <span class="dv">7</span> <span class="sc">~</span> <span class="st">"less than 7 hours"</span>,</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    sleep <span class="sc">&gt;=</span> <span class="dv">7</span> <span class="sc">~</span> <span class="st">"7 hours or more"</span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  ))</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>sleep_summary <span class="ot">&lt;-</span> music_sleep <span class="sc">|&gt;</span> </span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sleep) <span class="sc">|&gt;</span> </span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean =</span> <span class="fu">mean</span>(spotify_time)) <span class="sc">|&gt;</span> </span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mean =</span> <span class="fu">round</span>(mean, <span class="dv">1</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sleep, mean)</span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>sleep_summary <span class="sc">|&gt;</span> </span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cols_label</span>( <span class="co">#renaming columns </span></span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">sleep =</span> <span class="st">"sleep"</span>,</span>
-<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean =</span> <span class="st">"average spotify time (min)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>music_sleep <span class="ot">&lt;-</span> cleansleep <span class="sc">|&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sleep =</span> <span class="fu">case_when</span>(</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    sleep <span class="sc">&lt;</span> <span class="dv">7</span> <span class="sc">~</span> <span class="st">"less than 7 hours"</span>,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    sleep <span class="sc">&gt;=</span> <span class="dv">7</span> <span class="sc">~</span> <span class="st">"7 hours or more"</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>sleep_summary <span class="ot">&lt;-</span> music_sleep <span class="sc">|&gt;</span> </span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sleep) <span class="sc">|&gt;</span> </span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean =</span> <span class="fu">mean</span>(spotify_time)) <span class="sc">|&gt;</span> </span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mean =</span> <span class="fu">round</span>(mean, <span class="dv">1</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sleep, mean)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>sleep_summary <span class="sc">|&gt;</span> </span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cols_label</span>( <span class="co">#renaming columns </span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">sleep =</span> <span class="st">"sleep"</span>,</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean =</span> <span class="st">"average spotify time (min)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="pmksqbumsv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#pmksqbumsv table {
+<div id="jmpzawgixz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#jmpzawgixz table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#pmksqbumsv thead, #pmksqbumsv tbody, #pmksqbumsv tfoot, #pmksqbumsv tr, #pmksqbumsv td, #pmksqbumsv th {
+#jmpzawgixz thead, #jmpzawgixz tbody, #jmpzawgixz tfoot, #jmpzawgixz tr, #jmpzawgixz td, #jmpzawgixz th {
   border-style: none;
 }
 
-#pmksqbumsv p {
+#jmpzawgixz p {
   margin: 0;
   padding: 0;
 }
 
-#pmksqbumsv .gt_table {
+#jmpzawgixz .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -853,12 +837,12 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-left-color: #D3D3D3;
 }
 
-#pmksqbumsv .gt_caption {
+#jmpzawgixz .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#pmksqbumsv .gt_title {
+#jmpzawgixz .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -870,7 +854,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-bottom-width: 0;
 }
 
-#pmksqbumsv .gt_subtitle {
+#jmpzawgixz .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -882,7 +866,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-top-width: 0;
 }
 
-#pmksqbumsv .gt_heading {
+#jmpzawgixz .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -894,13 +878,13 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-right-color: #D3D3D3;
 }
 
-#pmksqbumsv .gt_bottom_border {
+#jmpzawgixz .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#pmksqbumsv .gt_col_headings {
+#jmpzawgixz .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -915,7 +899,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-right-color: #D3D3D3;
 }
 
-#pmksqbumsv .gt_col_heading {
+#jmpzawgixz .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -935,7 +919,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   overflow-x: hidden;
 }
 
-#pmksqbumsv .gt_column_spanner_outer {
+#jmpzawgixz .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -947,15 +931,15 @@ dbl (4): mood level, spotify time, total screen time, sleep
   padding-right: 4px;
 }
 
-#pmksqbumsv .gt_column_spanner_outer:first-child {
+#jmpzawgixz .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#pmksqbumsv .gt_column_spanner_outer:last-child {
+#jmpzawgixz .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#pmksqbumsv .gt_column_spanner {
+#jmpzawgixz .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -967,11 +951,11 @@ dbl (4): mood level, spotify time, total screen time, sleep
   width: 100%;
 }
 
-#pmksqbumsv .gt_spanner_row {
+#jmpzawgixz .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#pmksqbumsv .gt_group_heading {
+#jmpzawgixz .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -997,7 +981,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   text-align: left;
 }
 
-#pmksqbumsv .gt_empty_group_heading {
+#jmpzawgixz .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1012,15 +996,15 @@ dbl (4): mood level, spotify time, total screen time, sleep
   vertical-align: middle;
 }
 
-#pmksqbumsv .gt_from_md > :first-child {
+#jmpzawgixz .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#pmksqbumsv .gt_from_md > :last-child {
+#jmpzawgixz .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#pmksqbumsv .gt_row {
+#jmpzawgixz .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1039,7 +1023,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   overflow-x: hidden;
 }
 
-#pmksqbumsv .gt_stub {
+#jmpzawgixz .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1052,7 +1036,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   padding-right: 5px;
 }
 
-#pmksqbumsv .gt_stub_row_group {
+#jmpzawgixz .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1066,15 +1050,15 @@ dbl (4): mood level, spotify time, total screen time, sleep
   vertical-align: top;
 }
 
-#pmksqbumsv .gt_row_group_first td {
+#jmpzawgixz .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#pmksqbumsv .gt_row_group_first th {
+#jmpzawgixz .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#pmksqbumsv .gt_summary_row {
+#jmpzawgixz .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1084,16 +1068,16 @@ dbl (4): mood level, spotify time, total screen time, sleep
   padding-right: 5px;
 }
 
-#pmksqbumsv .gt_first_summary_row {
+#jmpzawgixz .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#pmksqbumsv .gt_first_summary_row.thick {
+#jmpzawgixz .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#pmksqbumsv .gt_last_summary_row {
+#jmpzawgixz .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1103,7 +1087,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-bottom-color: #D3D3D3;
 }
 
-#pmksqbumsv .gt_grand_summary_row {
+#jmpzawgixz .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1113,7 +1097,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   padding-right: 5px;
 }
 
-#pmksqbumsv .gt_first_grand_summary_row {
+#jmpzawgixz .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1123,7 +1107,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-top-color: #D3D3D3;
 }
 
-#pmksqbumsv .gt_last_grand_summary_row_top {
+#jmpzawgixz .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1133,11 +1117,11 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-bottom-color: #D3D3D3;
 }
 
-#pmksqbumsv .gt_striped {
+#jmpzawgixz .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#pmksqbumsv .gt_table_body {
+#jmpzawgixz .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1146,7 +1130,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-bottom-color: #D3D3D3;
 }
 
-#pmksqbumsv .gt_footnotes {
+#jmpzawgixz .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1160,7 +1144,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-right-color: #D3D3D3;
 }
 
-#pmksqbumsv .gt_footnote {
+#jmpzawgixz .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1169,7 +1153,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   padding-right: 5px;
 }
 
-#pmksqbumsv .gt_sourcenotes {
+#jmpzawgixz .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1183,7 +1167,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-right-color: #D3D3D3;
 }
 
-#pmksqbumsv .gt_sourcenote {
+#jmpzawgixz .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1191,72 +1175,72 @@ dbl (4): mood level, spotify time, total screen time, sleep
   padding-right: 5px;
 }
 
-#pmksqbumsv .gt_left {
+#jmpzawgixz .gt_left {
   text-align: left;
 }
 
-#pmksqbumsv .gt_center {
+#jmpzawgixz .gt_center {
   text-align: center;
 }
 
-#pmksqbumsv .gt_right {
+#jmpzawgixz .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#pmksqbumsv .gt_font_normal {
+#jmpzawgixz .gt_font_normal {
   font-weight: normal;
 }
 
-#pmksqbumsv .gt_font_bold {
+#jmpzawgixz .gt_font_bold {
   font-weight: bold;
 }
 
-#pmksqbumsv .gt_font_italic {
+#jmpzawgixz .gt_font_italic {
   font-style: italic;
 }
 
-#pmksqbumsv .gt_super {
+#jmpzawgixz .gt_super {
   font-size: 65%;
 }
 
-#pmksqbumsv .gt_footnote_marks {
+#jmpzawgixz .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#pmksqbumsv .gt_asterisk {
+#jmpzawgixz .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#pmksqbumsv .gt_indent_1 {
+#jmpzawgixz .gt_indent_1 {
   text-indent: 5px;
 }
 
-#pmksqbumsv .gt_indent_2 {
+#jmpzawgixz .gt_indent_2 {
   text-indent: 10px;
 }
 
-#pmksqbumsv .gt_indent_3 {
+#jmpzawgixz .gt_indent_3 {
   text-indent: 15px;
 }
 
-#pmksqbumsv .gt_indent_4 {
+#jmpzawgixz .gt_indent_4 {
   text-indent: 20px;
 }
 
-#pmksqbumsv .gt_indent_5 {
+#jmpzawgixz .gt_indent_5 {
   text-indent: 25px;
 }
 
-#pmksqbumsv .katex-display {
+#jmpzawgixz .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#pmksqbumsv div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#jmpzawgixz div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>

@@ -1,18 +1,20 @@
 ---
 title: "ENVS-193DS_homework-03"
+name: "Emily Lombardi"
+date: 6/2/25
 format: html
 editor: visual
 ---
 
 https://github.com/emilyl-2324/ENVS-193DS_homework-03.git
 
-```{r}
-library(tidyverse)
-library(here)
-library(gt)
-library(janitor)
-library(readxl)
-library(dplyr)
+```{r, message=FALSE, warning=FALSE}
+library(tidyverse) #general use
+library(here) #file organization
+library(gt) #visualizing table
+library(janitor) #cleaning dataframes
+library(readxl) #reading excel files
+library(dplyr) #provides grammar for data manipulation
 ```
 
 # Problem 1:
