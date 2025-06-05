@@ -236,7 +236,10 @@ the content of your piece (what are you showing?) The piece includes JBL speaker
 
 the influences (what did techniques/artists/etc. did you find influential in creating your work?) I wanted to make sure the art wasn't too abstract, so that the viewer could still understand what the visual is depicting. The JBL is a pretty common everyday object and I thought it would be relevant since the corresponding ggplot shows the relationship between music listening time and sleep.
 
-the form of your work (written code, watercolor, oil painting, etc.) your process (how did you create your work?) I sketched the visual on paper. I later did a digital version to make it more polished.
+the form of your work (written code, watercolor, oil painting, etc.) 
+The art is a digital drawing created on paint. 
+
+your process (how did you create your work?) I sketched the visual on paper. I later did a digital version to make it more polished.
 
 # Problem 3. Statistical critique (36 points)
 
