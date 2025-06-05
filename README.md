@@ -22,8 +22,16 @@ library(dplyr) #provides grammar for data manipulation
 # Data and file information
 
 File Structure:
+
 ```{r}
-├───code folder. ENVS-193DS_homework-03 │ └───ENVS-193DS_homework-03_files │ ├───figure-html │ └───libs │ ├───bootstrap │ ├───clipboard │ └───quarto-html └───data folder. ENVS-193DS_homework-03
+├───code folder. ENVS-193DS_homework-03
+│   └───ENVS-193DS_homework-03_files
+│       ├───figure-html
+│       └───libs
+│           ├───bootstrap
+│           ├───clipboard
+│           └───quarto-html
+└───data folder. ENVS-193DS_homework-03
 ```
 
 # Rendered output
