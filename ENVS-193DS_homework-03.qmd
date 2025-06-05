@@ -4,10 +4,10 @@ name: "Emily Lombardi"
 date: 6/2/25
 format: html
 editor: visual
-output:
-  html_document:
-    toc: true
-    toc_float: true
+toc: true # use this to display a table of contents
+execute:
+  message: false # use this to make sure messages don't show up
+  warning: false # use this to make sure warnings don't show up
 ---
 
 https://github.com/emilyl-2324/ENVS-193DS_homework-03.git
@@ -182,7 +182,9 @@ Write a caption for your figure.
 
 Figure 4. Figure depicts relationship between sleep time (categorized as either less than 7 hours or 7 hours or greater) and spotify listening time in minutes. Each point represents listening time in minutes. Red points represents sleep time of 7 hours or more while blue represents sleep of less than 7 hours. The bar shows the average listening time for each sleep time category, depicting a greater average listening time for days that had 7 or more hours of sleep.
 
-## d. Table presentation (10 points) Using gt or flextable, create a table with the same data summary that you describe in part a and visualized in part b. For example, if you described and visualized means, make a table with means. If you need to, round any numbers to one decimal point.
+## d. Table presentation (10 points) 
+
+Using gt or flextable, create a table with the same data summary that you describe in part a and visualized in part b. For example, if you described and visualized means, make a table with means. If you need to, round any numbers to one decimal point.
 
 ```{r}
 #table 1. sleep and average listening time 
