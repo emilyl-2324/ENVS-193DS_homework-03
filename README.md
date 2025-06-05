@@ -8,7 +8,7 @@ This dataset is from: Zieker, J., Zieker, D., Jatzko, A. et al. Differential gen
 
 The published paper is: Zieker, J., Zieker, D., Jatzko, A. et al. Differential gene expression in peripheral blood of patients suffering from post-traumatic stress disorder. Mol Psychiatry 12, 116–118 (2007). <https://doi.org/10.1038/sj.mp.4001905>
 
-## Packages: 
+## Packages:
 
 ```{r, message=FALSE, warning=FALSE}
 library(tidyverse) #general use
@@ -20,5 +20,10 @@ library(dplyr) #provides grammar for data manipulation
 ```
 
 # Data and file information
+
+File Structure:
+```{r}
+├───code folder. ENVS-193DS_homework-03 │ └───ENVS-193DS_homework-03_files │ ├───figure-html │ └───libs │ ├───bootstrap │ ├───clipboard │ └───quarto-html └───data folder. ENVS-193DS_homework-03
+```
 
 # Rendered output
