@@ -173,7 +173,9 @@ ggplot(data = music_sleep, #uses music_sleep dataframe
         y = "listening time (min)",
         title = "Figure 4. Sleep vs Listening Time (min)")+
   theme_minimal()+  
-  theme(legend.position = "none") #remove legend
+  theme(legend.position = "none") + #remove legend
+  scale_color_manual(values = c("less than 7 hours" = "#1f77b4", "7 hours or more" = "#ff7f0e")) +  # colors for jitter points
+  scale_fill_manual(values = c("less than 7 hours" = "#1f77b4", "7 hours or more" = "#ff7f0e"))    # colors for bars
 ```
 
 ## c. Caption (5 points):
