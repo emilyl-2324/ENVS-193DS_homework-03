@@ -125,7 +125,8 @@ The following objects are masked from 'package:stats':
 
     chisq.test, fisher.test</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="problem-1" class="level1">
 <h1>Problem 1:</h1>
@@ -141,8 +142,7 @@ The following objects are masked from 'package:stats':
 <p>Use colors in your figure (that are not the default ggplot settings).</p>
 <p>Make sure your axis labels are full, readable text (not just your column names).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>datasheet <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"envs193dsmusicdata.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>datasheet <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"envs193dsmusicdata.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 35 Columns: 6
 ── Column specification ────────────────────────────────────────────────────────
@@ -260,47 +260,44 @@ dbl (4): mood level, spotify time, total screen time, sleep
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create a gt table showing sleep and average spotify listening time</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>cleansleep <span class="ot">&lt;-</span> cleandata <span class="sc">|&gt;</span> </span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sleep <span class="sc">&gt;</span> <span class="dv">0</span>)</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>music_sleep <span class="ot">&lt;-</span> cleansleep <span class="sc">|&gt;</span></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sleep =</span> <span class="fu">case_when</span>(</span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    sleep <span class="sc">&lt;</span> <span class="dv">7</span> <span class="sc">~</span> <span class="st">"less than 7 hours"</span>,</span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    sleep <span class="sc">&gt;=</span> <span class="dv">7</span> <span class="sc">~</span> <span class="st">"7 hours or more"</span></span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>  ))</span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>sleep_summary <span class="ot">&lt;-</span> music_sleep <span class="sc">|&gt;</span> </span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sleep) <span class="sc">|&gt;</span> </span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean =</span> <span class="fu">mean</span>(spotify_time)) <span class="sc">|&gt;</span> </span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mean =</span> <span class="fu">round</span>(mean, <span class="dv">1</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sleep, mean)</span>
-<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>sleep_summary <span class="sc">|&gt;</span> </span>
-<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cols_label</span>( <span class="co">#renaming columns </span></span>
-<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">sleep =</span> <span class="st">"sleep"</span>,</span>
-<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean =</span> <span class="st">"average spotify time"</span></span>
-<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>cleansleep <span class="ot">&lt;-</span> cleandata <span class="sc">|&gt;</span> </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sleep <span class="sc">&gt;</span> <span class="dv">0</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>music_sleep <span class="ot">&lt;-</span> cleansleep <span class="sc">|&gt;</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sleep =</span> <span class="fu">case_when</span>(</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    sleep <span class="sc">&lt;</span> <span class="dv">7</span> <span class="sc">~</span> <span class="st">"less than 7 hours"</span>,</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    sleep <span class="sc">&gt;=</span> <span class="dv">7</span> <span class="sc">~</span> <span class="st">"7 hours or more"</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>sleep_summary <span class="ot">&lt;-</span> music_sleep <span class="sc">|&gt;</span> </span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sleep) <span class="sc">|&gt;</span> </span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean =</span> <span class="fu">mean</span>(spotify_time)) <span class="sc">|&gt;</span> </span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mean =</span> <span class="fu">round</span>(mean, <span class="dv">1</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sleep, mean)</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>sleep_summary <span class="sc">|&gt;</span> </span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cols_label</span>( <span class="co">#renaming columns </span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">sleep =</span> <span class="st">"sleep"</span>,</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean =</span> <span class="st">"average spotify time"</span></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="hzkqfyjprf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#hzkqfyjprf table {
+<div id="tgtfsdcdng" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#tgtfsdcdng table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#hzkqfyjprf thead, #hzkqfyjprf tbody, #hzkqfyjprf tfoot, #hzkqfyjprf tr, #hzkqfyjprf td, #hzkqfyjprf th {
+#tgtfsdcdng thead, #tgtfsdcdng tbody, #tgtfsdcdng tfoot, #tgtfsdcdng tr, #tgtfsdcdng td, #tgtfsdcdng th {
   border-style: none;
 }
 
-#hzkqfyjprf p {
+#tgtfsdcdng p {
   margin: 0;
   padding: 0;
 }
 
-#hzkqfyjprf .gt_table {
+#tgtfsdcdng .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -326,12 +323,12 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-left-color: #D3D3D3;
 }
 
-#hzkqfyjprf .gt_caption {
+#tgtfsdcdng .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#hzkqfyjprf .gt_title {
+#tgtfsdcdng .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -343,7 +340,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-bottom-width: 0;
 }
 
-#hzkqfyjprf .gt_subtitle {
+#tgtfsdcdng .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -355,7 +352,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-top-width: 0;
 }
 
-#hzkqfyjprf .gt_heading {
+#tgtfsdcdng .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -367,13 +364,13 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-right-color: #D3D3D3;
 }
 
-#hzkqfyjprf .gt_bottom_border {
+#tgtfsdcdng .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#hzkqfyjprf .gt_col_headings {
+#tgtfsdcdng .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -388,7 +385,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-right-color: #D3D3D3;
 }
 
-#hzkqfyjprf .gt_col_heading {
+#tgtfsdcdng .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -408,7 +405,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   overflow-x: hidden;
 }
 
-#hzkqfyjprf .gt_column_spanner_outer {
+#tgtfsdcdng .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -420,15 +417,15 @@ dbl (4): mood level, spotify time, total screen time, sleep
   padding-right: 4px;
 }
 
-#hzkqfyjprf .gt_column_spanner_outer:first-child {
+#tgtfsdcdng .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#hzkqfyjprf .gt_column_spanner_outer:last-child {
+#tgtfsdcdng .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#hzkqfyjprf .gt_column_spanner {
+#tgtfsdcdng .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -440,11 +437,11 @@ dbl (4): mood level, spotify time, total screen time, sleep
   width: 100%;
 }
 
-#hzkqfyjprf .gt_spanner_row {
+#tgtfsdcdng .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#hzkqfyjprf .gt_group_heading {
+#tgtfsdcdng .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -470,7 +467,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   text-align: left;
 }
 
-#hzkqfyjprf .gt_empty_group_heading {
+#tgtfsdcdng .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -485,15 +482,15 @@ dbl (4): mood level, spotify time, total screen time, sleep
   vertical-align: middle;
 }
 
-#hzkqfyjprf .gt_from_md > :first-child {
+#tgtfsdcdng .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#hzkqfyjprf .gt_from_md > :last-child {
+#tgtfsdcdng .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#hzkqfyjprf .gt_row {
+#tgtfsdcdng .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -512,7 +509,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   overflow-x: hidden;
 }
 
-#hzkqfyjprf .gt_stub {
+#tgtfsdcdng .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -525,7 +522,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   padding-right: 5px;
 }
 
-#hzkqfyjprf .gt_stub_row_group {
+#tgtfsdcdng .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -539,15 +536,15 @@ dbl (4): mood level, spotify time, total screen time, sleep
   vertical-align: top;
 }
 
-#hzkqfyjprf .gt_row_group_first td {
+#tgtfsdcdng .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#hzkqfyjprf .gt_row_group_first th {
+#tgtfsdcdng .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#hzkqfyjprf .gt_summary_row {
+#tgtfsdcdng .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -557,16 +554,16 @@ dbl (4): mood level, spotify time, total screen time, sleep
   padding-right: 5px;
 }
 
-#hzkqfyjprf .gt_first_summary_row {
+#tgtfsdcdng .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#hzkqfyjprf .gt_first_summary_row.thick {
+#tgtfsdcdng .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#hzkqfyjprf .gt_last_summary_row {
+#tgtfsdcdng .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -576,7 +573,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-bottom-color: #D3D3D3;
 }
 
-#hzkqfyjprf .gt_grand_summary_row {
+#tgtfsdcdng .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -586,7 +583,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   padding-right: 5px;
 }
 
-#hzkqfyjprf .gt_first_grand_summary_row {
+#tgtfsdcdng .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -596,7 +593,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-top-color: #D3D3D3;
 }
 
-#hzkqfyjprf .gt_last_grand_summary_row_top {
+#tgtfsdcdng .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -606,11 +603,11 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-bottom-color: #D3D3D3;
 }
 
-#hzkqfyjprf .gt_striped {
+#tgtfsdcdng .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#hzkqfyjprf .gt_table_body {
+#tgtfsdcdng .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -619,7 +616,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-bottom-color: #D3D3D3;
 }
 
-#hzkqfyjprf .gt_footnotes {
+#tgtfsdcdng .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -633,7 +630,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-right-color: #D3D3D3;
 }
 
-#hzkqfyjprf .gt_footnote {
+#tgtfsdcdng .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -642,7 +639,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   padding-right: 5px;
 }
 
-#hzkqfyjprf .gt_sourcenotes {
+#tgtfsdcdng .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -656,7 +653,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-right-color: #D3D3D3;
 }
 
-#hzkqfyjprf .gt_sourcenote {
+#tgtfsdcdng .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -664,72 +661,72 @@ dbl (4): mood level, spotify time, total screen time, sleep
   padding-right: 5px;
 }
 
-#hzkqfyjprf .gt_left {
+#tgtfsdcdng .gt_left {
   text-align: left;
 }
 
-#hzkqfyjprf .gt_center {
+#tgtfsdcdng .gt_center {
   text-align: center;
 }
 
-#hzkqfyjprf .gt_right {
+#tgtfsdcdng .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#hzkqfyjprf .gt_font_normal {
+#tgtfsdcdng .gt_font_normal {
   font-weight: normal;
 }
 
-#hzkqfyjprf .gt_font_bold {
+#tgtfsdcdng .gt_font_bold {
   font-weight: bold;
 }
 
-#hzkqfyjprf .gt_font_italic {
+#tgtfsdcdng .gt_font_italic {
   font-style: italic;
 }
 
-#hzkqfyjprf .gt_super {
+#tgtfsdcdng .gt_super {
   font-size: 65%;
 }
 
-#hzkqfyjprf .gt_footnote_marks {
+#tgtfsdcdng .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#hzkqfyjprf .gt_asterisk {
+#tgtfsdcdng .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#hzkqfyjprf .gt_indent_1 {
+#tgtfsdcdng .gt_indent_1 {
   text-indent: 5px;
 }
 
-#hzkqfyjprf .gt_indent_2 {
+#tgtfsdcdng .gt_indent_2 {
   text-indent: 10px;
 }
 
-#hzkqfyjprf .gt_indent_3 {
+#tgtfsdcdng .gt_indent_3 {
   text-indent: 15px;
 }
 
-#hzkqfyjprf .gt_indent_4 {
+#tgtfsdcdng .gt_indent_4 {
   text-indent: 20px;
 }
 
-#hzkqfyjprf .gt_indent_5 {
+#tgtfsdcdng .gt_indent_5 {
   text-indent: 25px;
 }
 
-#hzkqfyjprf .katex-display {
+#tgtfsdcdng .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#hzkqfyjprf div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#tgtfsdcdng div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -814,23 +811,23 @@ dbl (4): mood level, spotify time, total screen time, sleep
 <span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">sleep =</span> <span class="st">"sleep"</span>,</span>
 <span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean =</span> <span class="st">"average spotify time (min)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="axjkcdufas" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#axjkcdufas table {
+<div id="pmksqbumsv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#pmksqbumsv table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#axjkcdufas thead, #axjkcdufas tbody, #axjkcdufas tfoot, #axjkcdufas tr, #axjkcdufas td, #axjkcdufas th {
+#pmksqbumsv thead, #pmksqbumsv tbody, #pmksqbumsv tfoot, #pmksqbumsv tr, #pmksqbumsv td, #pmksqbumsv th {
   border-style: none;
 }
 
-#axjkcdufas p {
+#pmksqbumsv p {
   margin: 0;
   padding: 0;
 }
 
-#axjkcdufas .gt_table {
+#pmksqbumsv .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -856,12 +853,12 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-left-color: #D3D3D3;
 }
 
-#axjkcdufas .gt_caption {
+#pmksqbumsv .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#axjkcdufas .gt_title {
+#pmksqbumsv .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -873,7 +870,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-bottom-width: 0;
 }
 
-#axjkcdufas .gt_subtitle {
+#pmksqbumsv .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -885,7 +882,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-top-width: 0;
 }
 
-#axjkcdufas .gt_heading {
+#pmksqbumsv .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -897,13 +894,13 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-right-color: #D3D3D3;
 }
 
-#axjkcdufas .gt_bottom_border {
+#pmksqbumsv .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#axjkcdufas .gt_col_headings {
+#pmksqbumsv .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -918,7 +915,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-right-color: #D3D3D3;
 }
 
-#axjkcdufas .gt_col_heading {
+#pmksqbumsv .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -938,7 +935,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   overflow-x: hidden;
 }
 
-#axjkcdufas .gt_column_spanner_outer {
+#pmksqbumsv .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -950,15 +947,15 @@ dbl (4): mood level, spotify time, total screen time, sleep
   padding-right: 4px;
 }
 
-#axjkcdufas .gt_column_spanner_outer:first-child {
+#pmksqbumsv .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#axjkcdufas .gt_column_spanner_outer:last-child {
+#pmksqbumsv .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#axjkcdufas .gt_column_spanner {
+#pmksqbumsv .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -970,11 +967,11 @@ dbl (4): mood level, spotify time, total screen time, sleep
   width: 100%;
 }
 
-#axjkcdufas .gt_spanner_row {
+#pmksqbumsv .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#axjkcdufas .gt_group_heading {
+#pmksqbumsv .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1000,7 +997,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   text-align: left;
 }
 
-#axjkcdufas .gt_empty_group_heading {
+#pmksqbumsv .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1015,15 +1012,15 @@ dbl (4): mood level, spotify time, total screen time, sleep
   vertical-align: middle;
 }
 
-#axjkcdufas .gt_from_md > :first-child {
+#pmksqbumsv .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#axjkcdufas .gt_from_md > :last-child {
+#pmksqbumsv .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#axjkcdufas .gt_row {
+#pmksqbumsv .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1042,7 +1039,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   overflow-x: hidden;
 }
 
-#axjkcdufas .gt_stub {
+#pmksqbumsv .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1055,7 +1052,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   padding-right: 5px;
 }
 
-#axjkcdufas .gt_stub_row_group {
+#pmksqbumsv .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1069,15 +1066,15 @@ dbl (4): mood level, spotify time, total screen time, sleep
   vertical-align: top;
 }
 
-#axjkcdufas .gt_row_group_first td {
+#pmksqbumsv .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#axjkcdufas .gt_row_group_first th {
+#pmksqbumsv .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#axjkcdufas .gt_summary_row {
+#pmksqbumsv .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1087,16 +1084,16 @@ dbl (4): mood level, spotify time, total screen time, sleep
   padding-right: 5px;
 }
 
-#axjkcdufas .gt_first_summary_row {
+#pmksqbumsv .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#axjkcdufas .gt_first_summary_row.thick {
+#pmksqbumsv .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#axjkcdufas .gt_last_summary_row {
+#pmksqbumsv .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1106,7 +1103,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-bottom-color: #D3D3D3;
 }
 
-#axjkcdufas .gt_grand_summary_row {
+#pmksqbumsv .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1116,7 +1113,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   padding-right: 5px;
 }
 
-#axjkcdufas .gt_first_grand_summary_row {
+#pmksqbumsv .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1126,7 +1123,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-top-color: #D3D3D3;
 }
 
-#axjkcdufas .gt_last_grand_summary_row_top {
+#pmksqbumsv .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1136,11 +1133,11 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-bottom-color: #D3D3D3;
 }
 
-#axjkcdufas .gt_striped {
+#pmksqbumsv .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#axjkcdufas .gt_table_body {
+#pmksqbumsv .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1149,7 +1146,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-bottom-color: #D3D3D3;
 }
 
-#axjkcdufas .gt_footnotes {
+#pmksqbumsv .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1163,7 +1160,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-right-color: #D3D3D3;
 }
 
-#axjkcdufas .gt_footnote {
+#pmksqbumsv .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1172,7 +1169,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   padding-right: 5px;
 }
 
-#axjkcdufas .gt_sourcenotes {
+#pmksqbumsv .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1186,7 +1183,7 @@ dbl (4): mood level, spotify time, total screen time, sleep
   border-right-color: #D3D3D3;
 }
 
-#axjkcdufas .gt_sourcenote {
+#pmksqbumsv .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1194,72 +1191,72 @@ dbl (4): mood level, spotify time, total screen time, sleep
   padding-right: 5px;
 }
 
-#axjkcdufas .gt_left {
+#pmksqbumsv .gt_left {
   text-align: left;
 }
 
-#axjkcdufas .gt_center {
+#pmksqbumsv .gt_center {
   text-align: center;
 }
 
-#axjkcdufas .gt_right {
+#pmksqbumsv .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#axjkcdufas .gt_font_normal {
+#pmksqbumsv .gt_font_normal {
   font-weight: normal;
 }
 
-#axjkcdufas .gt_font_bold {
+#pmksqbumsv .gt_font_bold {
   font-weight: bold;
 }
 
-#axjkcdufas .gt_font_italic {
+#pmksqbumsv .gt_font_italic {
   font-style: italic;
 }
 
-#axjkcdufas .gt_super {
+#pmksqbumsv .gt_super {
   font-size: 65%;
 }
 
-#axjkcdufas .gt_footnote_marks {
+#pmksqbumsv .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#axjkcdufas .gt_asterisk {
+#pmksqbumsv .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#axjkcdufas .gt_indent_1 {
+#pmksqbumsv .gt_indent_1 {
   text-indent: 5px;
 }
 
-#axjkcdufas .gt_indent_2 {
+#pmksqbumsv .gt_indent_2 {
   text-indent: 10px;
 }
 
-#axjkcdufas .gt_indent_3 {
+#pmksqbumsv .gt_indent_3 {
   text-indent: 15px;
 }
 
-#axjkcdufas .gt_indent_4 {
+#pmksqbumsv .gt_indent_4 {
   text-indent: 20px;
 }
 
-#axjkcdufas .gt_indent_5 {
+#pmksqbumsv .gt_indent_5 {
   text-indent: 25px;
 }
 
-#axjkcdufas .katex-display {
+#pmksqbumsv .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#axjkcdufas div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#pmksqbumsv div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1286,6 +1283,47 @@ dbl (4): mood level, spotify time, total screen time, sleep
 </div>
 </div>
 </div>
+</section>
+<section id="problem-2" class="level1">
+<h1>Problem #2:</h1>
+<section id="a.-describe-in-words-what-an-affective-visualization-could-look-like-for-your-personal-data-3-5-sentences.-2-points" class="level2">
+<h2 class="anchored" data-anchor-id="a.-describe-in-words-what-an-affective-visualization-could-look-like-for-your-personal-data-3-5-sentences.-2-points">a. Describe in words what an affective visualization could look like for your personal data (3-5 sentences). (2 points)</h2>
+<p>The visualization depicts JBL speakers, which represent columns referring to the average listening time for the two categoies of sleep time (&gt;=7 hours, &lt;7 hours). The music clefs represent underlying data points, where each clef is one observation.</p>
+</section>
+<section id="b.-create-a-sketch-on-paper-of-your-idea.-2-points" class="level2">
+<h2 class="anchored" data-anchor-id="b.-create-a-sketch-on-paper-of-your-idea.-2-points">b. Create a sketch (on paper) of your idea. (2 points)</h2>
+</section>
+<section id="c.-make-a-draft-of-your-visualization.-12-points" class="level2">
+<h2 class="anchored" data-anchor-id="c.-make-a-draft-of-your-visualization.-12-points">c.&nbsp;Make a draft of your visualization. (12 points)</h2>
+</section>
+<section id="d.-write-an-artist-statement.-8-points" class="level2">
+<h2 class="anchored" data-anchor-id="d.-write-an-artist-statement.-8-points">d.&nbsp;Write an artist statement. (8 points)</h2>
+<p>An artist statement gives the audience context to understand your work. For each of the following points, write 1-2 sentences to address:</p>
+<p>the content of your piece (what are you showing?) The piece includes JBL speakers, which represent columns referring to the average listening time for the two categories of sleep time (&gt;=7 hours, &lt;7 hours). The music clefs represent underlying data points, where each clef is one observation.</p>
+<p>the influences (what did techniques/artists/etc. did you find influential in creating your work?) I wanted to make sure the art wasn’t too abstract, so that the viewer could still understand what the visual is depicting. The JBL is a pretty common everyday object and I thought it would be relevant since the corresponding ggplot shows the relationship between music listening time and sleep.</p>
+<p>the form of your work (written code, watercolor, oil painting, etc.) your process (how did you create your work?) I sketched the visual on paper. I later did a digital version to make it more polished.</p>
+</section>
+</section>
+<section id="problem-3.-statistical-critique-36-points" class="level1">
+<h1>Problem 3. Statistical critique (36 points)</h1>
+<section id="a.-revisit-and-summarize-6-points" class="level2">
+<h2 class="anchored" data-anchor-id="a.-revisit-and-summarize-6-points">a. Revisit and summarize (6 points)</h2>
+<p>The study used a t-test, where the response variable was gene expression levels and the predictor variable was whether patients had PTSD or not. The t-test addressed the question of whether patients with or without PTSD had a statistically different result in gene expression levels. A significant difference in the gene expression levels would suggest that the difference is not due to random chance and that patients with PTSD can have different gene expression levels for certain genes compared to patients without PTSD.</p>
+</section>
+<section id="b.-visual-clarity-10-points" class="level2">
+<h2 class="anchored" data-anchor-id="b.-visual-clarity-10-points">b. Visual clarity (10 points)</h2>
+<p><em>If you inserted a table in Part b: How clearly does the table represent the data underlying tests?</em></p>
+<p>The table has 5 columns showing microarray results, including the gene name, the gene account number, P-value (from rank product), p-value (from t-test), and p-value (from wilcoxon’s test). This table doesn’t represent data the best in terms of spread or distribution, which can be changed by including standard deviation or variance. For example, the table can include the mean cortisol levels +/- standard deviation for PTSD patiences and non-PTSD patients. Based on the table alone, you also cannot tell how large the sample size is for the experimental or control group since it doesn’t list the number of samples or trials for each gene.</p>
+</section>
+<section id="c.-aesthetic-clarity-10-points" class="level2">
+<h2 class="anchored" data-anchor-id="c.-aesthetic-clarity-10-points">c.&nbsp;Aesthetic clarity (10 points)</h2>
+<p><em>If you inserted a table in Part b: How well did the authors handle “visual clutter”? Is there any bolding/italic text to draw your eye to specific numbers?</em> The table is single spaced and there are around 20 genes, so the values are packed in tight rows but there are spaces between columns showing the p-values from different statistical tests. There aren’t any bolded values numerically but genes are groups into two categories: regulated and unregulated, which the title categories are italicized. Visually, the table could be improved by providing a guideline or alternating backdrop colors to make searching for p-values easier.</p>
+</section>
+<section id="d.-recommendations-can-be-longer-than-4-sentences-10-points" class="level2">
+<h2 class="anchored" data-anchor-id="d.-recommendations-can-be-longer-than-4-sentences-10-points">d.&nbsp;Recommendations (can be longer than 4 sentences, 10 points)</h2>
+<p><em>What recommendations would you make to make the figure or table better? What would you take out, add, or change? Provide explanations/justifications for each of your recommendations.</em></p>
+<p>To improve the data table in terms of helping better represent the underlying data, I would include other statistical elements, such as standard deviation. Standard deviation would show spread of the data, specifically the spread of cortisol levels between PTSD patients and non-PTSD patiences. Without standard deviation, you cannot tell whether the mean represents clustered data or data with a large spread. Sample size should also be added for each gene to show reliability of the data - in general, the more trials there are, the more reliable the data will be. Currently, the only statistical element the data table shows is the p-value, which suggests whether to reject the null hypothesis (that there is no statistical difference in cortisol levels between people with/without PTSD) or not. Adding standard deviation and sample size can show spread of underlying data and reliability.</p>
+</section>
 </section>
 
 </main>

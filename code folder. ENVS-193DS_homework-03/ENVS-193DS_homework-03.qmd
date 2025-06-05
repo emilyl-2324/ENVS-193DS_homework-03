@@ -12,6 +12,7 @@ library(here)
 library(gt)
 library(janitor)
 library(readxl)
+library(dplyr)
 ```
 
 # Problem 1:
@@ -33,7 +34,6 @@ Use colors in your figure (that are not the default ggplot settings).
 Make sure your axis labels are full, readable text (not just your column names).
 
 ```{r}
-library(janitor)
 datasheet <- read_csv("envs193dsmusicdata.csv")
 
 cleandata <- datasheet |> #storing clean df as an object "cleandata"
@@ -121,9 +121,6 @@ ggplot(data = cleandata, #using the cleandata dataframe
 
 ```{r}
 #create a gt table showing sleep and average spotify listening time
-
-library(dplyr)
-library(gt)
 cleansleep <- cleandata |> 
   filter(sleep > 0)
   
@@ -217,5 +214,32 @@ I wanted to make sure the art wasn't too abstract, so that the viewer could stil
 the form of your work (written code, watercolor, oil painting, etc.)
 your process (how did you create your work?)
 I sketched the visual on paper. I later did a digital version to make it more polished. 
+
+# Problem 3. Statistical critique (36 points)
+## a. Revisit and summarize (6 points)
+The study used a t-test, where the response variable was gene expression levels and the predictor variable was whether patients had PTSD or not. The t-test addressed the question of whether patients with or without PTSD had a statistically different result in gene expression levels. A significant difference in the gene expression levels would suggest that the difference is not due to random chance and that patients with PTSD can have different gene expression levels for certain genes compared to patients without PTSD.
+
+## b. Visual clarity (10 points)
+*If you inserted a table in Part b: How clearly does the table represent the data underlying tests?*
+
+The table has 5 columns showing microarray results, including the gene name, the gene account number, P-value (from rank product), p-value (from t-test), and p-value (from wilcoxon's test). This table doesn't represent data the best in terms of spread or distribution, which can be changed by including standard deviation or variance. For example, the table can include the mean cortisol levels +/- standard deviation for PTSD patiences and non-PTSD patients. Based on the table alone, you also cannot tell how large the sample size is for the experimental or control group since it doesn't list the number of samples or trials for each gene.
+
+## c. Aesthetic clarity (10 points)
+*If you inserted a table in Part b: How well did the authors handle “visual clutter”? Is there any bolding/italic text to draw your eye to specific numbers?* 
+The table is single spaced and there are around 20 genes, so the values are packed in tight rows but there are spaces between columns showing the p-values from different statistical tests. There aren't any bolded values numerically but genes are groups into two categories: regulated and unregulated, which the title categories are italicized. Visually, the table could be improved by providing a guideline or alternating backdrop colors to make searching for p-values easier.
+
+## d. Recommendations (can be longer than 4 sentences, 10 points)
+*What recommendations would you make to make the figure or table better? What would you take out, add, or change? Provide explanations/justifications for each of your recommendations.*
+
+To improve the data table in terms of helping better represent the underlying data, I would include other statistical elements, such as standard deviation. Standard deviation would show spread of the data, specifically the spread of cortisol levels between PTSD patients and non-PTSD patiences. Without standard deviation, you cannot tell whether the mean represents clustered data or data with a large spread. Sample size should also be added for each gene to show reliability of the data - in general, the more trials there are, the more reliable the data will be. Currently, the only statistical element the data table shows is the p-value, which suggests whether to reject the null hypothesis (that there is no statistical difference in cortisol levels between people with/without PTSD) or not. Adding standard deviation and sample size can show spread of underlying data and reliability. 
+
+
+
+
+
+
+
+
+
 
 
